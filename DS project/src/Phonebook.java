@@ -36,20 +36,8 @@ public class Phonebook {
 
        public void ContactExists(){}
 
+       public boolean searchContactByName(String name){}
 
-
-     //  System.out.println("Welcome to the Linked Tree Phonebook!\r\n" + //
-             //  "Please choose an option:\r\n" + //
-               // "1. Add a contact\r\n" + //
-             //  "2. Search for a contact\r\n" + //
-              // "3. Delete a contact\r\n" + //
-              // "4. Schedule an event\r\n" + //
-             //  "5. Print event details\r\n" + //
-             //  "6. Print contacts by first name\r\n" + //
-             //  "7. Print all events alphabetically\r\n" + //
-              // "8. Exit\r");
-              // System.out.println("\nEnter your choice:");
-            // int userChoice = Integer.parseInt(scanner.nextLine());
 
 
  int choice;
@@ -79,25 +67,32 @@ public class Phonebook {
                         break;
                     case 2:
                 System.out.println("Enter search criteria:\r\n"+"1. Name\r\n"+"2. Phone Number\r\n"+"3. Email Address\r\n"+"4. Address\r\n"+"5. Birthday\r");
-                System.out.print("Enter your choice: ");
+                System.out.println("Enter your choice: ");
                      int criteria = scanner.nextInt();
                      scanner.nextLine(); 
                      switch(criteria){
 
                         case 1:
                         System.out.print("Enter the contact's name: ");
+                             String name= scanner.nextline();
+
+                            if(searchContactByName(name)){
+                            System.out.println("Contact found!");
+                            System.out.println(contact.toString());
+                           }
+                             
                         break;
                         case 2:
-                        System.out.print("Enter the contact's phone number ");
+                        System.out.print("Enter the contact's phone number: ");
                         break;
                         case 3:
-                        System.out.print("Enter the contact's email address");
+                        System.out.print("Enter the contact's email address":);
                         break;
                         case 4:
-                        System.out.print("Enter the contact's address");
+                        System.out.print("Enter the contact's address:");
                         break;
                         case 5:
-                        System.out.print("Enter the contact's birthday");
+                        System.out.print("Enter the contact's birthday:");
                         break;
                      }
                         break;

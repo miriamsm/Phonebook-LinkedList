@@ -24,10 +24,11 @@ public class Phonebook {
     }
         return true;  }
 
-
-       public void removeContact(Contact contact){
-        if (UniqueContact(Contact contact)){
-            Contactlist.contact.remove();}  }
+    
+public boolean removeContact(Contact contact){
+            Contactlist.remove(contact);
+            return true;
+       }
     
 
        public String searchContact(){}

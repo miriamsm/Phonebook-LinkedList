@@ -11,12 +11,12 @@ public class Phonebook {
         if (!UniqueContact(contact)) {
             System.out.println("a contact with the same name or phone number already exists, Contact can not be added");
             return;
-        }   contacts.add(contact);
+        }   Contactlist.add(contact);
           System.out.println("Contact added successfully!"); }
     
 
      private boolean UniqueContact(Contact new) {
-        for (Contact existing : contacts) {
+        for (Contact existing : Contactlist) {
            if (existing.getName().equalsIgnoreCase(new.getName())||existing.getPhoneNumber().equals(new.getPhoneNumber())) {
             return false; }
     }

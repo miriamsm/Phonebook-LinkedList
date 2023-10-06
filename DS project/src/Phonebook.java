@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Phonebook {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
+
+        Phonebook phonebook = new Phonebook();
         
        LinkedList<Contact> Contactlist= new LinkedList<>();
        LinkedList<Event> Eventlist= new LinkedList<>();
@@ -59,11 +61,20 @@ public class Phonebook {
                 switch (choice) {
                     case 1:
                 System.out.println("Enter the contact's name: ");
+                String name = scanner.nextline;
                 System.out.println("Enter the contact's phone number:");
+                String phone = scanner.nextline;
                 System.out.println("Enter the contact's email address:");
+                String email = scanner.nextline;
                 System.out.println("Enter the contact's address:");
+                String address = scanner.nextline;
                 System.out.println("Enter the contact's birthday:");
+                String birthday = scanner.nextline;
                 System.out.println("Enter any notes for the contact:");
+                String notes = scanner.nextline;
+                Contact contact = new Contact(name, phone, email, address, birthday,notes);
+                phonebook.addContact(contact);
+
                         break;
                     case 2:
                 System.out.println("Enter search criteria:\r\n"+"1. Name\r\n"+"2. Phone Number\r\n"+"3. Email Address\r\n"+"4. Address\r\n"+"5. Birthday\r");

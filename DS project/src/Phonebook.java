@@ -11,30 +11,22 @@ public class Phonebook {
         if (!UniqueContact(contact)) {
             System.out.println("a contact with the same name or phone number already exists, Contact can not be added");
             return;
-        }
-        
-        contacts.add(contact);
-          System.out.println("Contact added successfully!");
-
-    }
+        }   contacts.add(contact);
+          System.out.println("Contact added successfully!"); }
+    
 
      private boolean UniqueContact(Contact new) {
-
         for (Contact existing : contacts) {
-
            if (existing.getName().equalsIgnoreCase(new.getName())||existing.getPhoneNumber().equals(new.getPhoneNumber())) {
-            return false;
-        }
+            return false; }
     }
-        return true; 
-    }
+        return true;  }
 
 
        public void removeContact(Contact contact){
         if (UniqueContact(Contact contact)){
-            Contactlist.contact.remove();
-        }
-       }
+            Contactlist.contact.remove();}  }
+    
 
        public String searchContact(){}
 

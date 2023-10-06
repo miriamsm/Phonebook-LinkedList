@@ -148,6 +148,7 @@ public class Phonebook {
                 }
             } while (choice != 8);
     
+            scanner.close();
 
              
 

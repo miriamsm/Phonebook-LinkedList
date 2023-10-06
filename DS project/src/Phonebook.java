@@ -1,15 +1,13 @@
 import java.util.Scanner;
 
 public class Phonebook {
-    public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
-
-        Phonebook phonebook = new Phonebook();
         
        LinkedList<Contact> Contactlist= new LinkedList<>();
        LinkedList<Event> Eventlist= new LinkedList<>();
 
-       public void addContact(Contact contact) {
+    
+
+    public void addContact(Contact contact){
         if (!UniqueContact(contact)) {
             System.out.println("a contact with the same name or phone number already exists, Contact can not be added");
             return;
@@ -17,21 +15,19 @@ public class Phonebook {
           System.out.println("Contact added successfully!"); }
     
 
-     private boolean UniqueContact(Contact new) {
-        for (Contact existing : Contactlist) {
-           if (existing.getName().equalsIgnoreCase(new.getName())||existing.getPhoneNumber().equals(new.getPhoneNumber())) {
-            return false; }
-    }
+     public boolean UniqueContact(Contact newContact) {
+    
         return true;  }
 
     
-public boolean removeContact(Contact contact){
-            Contactlist.remove(contact);
+     public boolean removeContact(Contact contact){
             return true;
        }
     
 
-       public String searchContact(){}
+       public String searchContact(){
+        return null;
+       }
 
        public void shareEvents(){}
 
@@ -39,12 +35,20 @@ public boolean removeContact(Contact contact){
 
        public void ContactExists(){}
 
-       public boolean searchContactByName(String name){}
+       public static boolean searchContactByName(String name){
+        return true;
+       }
 
+
+
+
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+            Phonebook phonebook = new Phonebook();
 
 
  int choice;
-            System.out.println("Welcome to the Linked Tree Phonebook!" );
+            System.out.println("Welcome to the Linked Tree Phonebook!");
             do {
                 System.out.println("Please choose an option:");
                 System.out.println("1. Add a Contact");
@@ -62,17 +66,17 @@ public boolean removeContact(Contact contact){
                 switch (choice) {
                     case 1:
                 System.out.println("Enter the contact's name: ");
-                String name = scanner.nextline;
+                String name = scanner.nextLine();
                 System.out.println("Enter the contact's phone number:");
-                String phone = scanner.nextline;
+                String phone = scanner.nextLine();
                 System.out.println("Enter the contact's email address:");
-                String email = scanner.nextline;
+                String email = scanner.nextLine();
                 System.out.println("Enter the contact's address:");
-                String address = scanner.nextline;
+                String address = scanner.nextLine();
                 System.out.println("Enter the contact's birthday:");
-                String birthday = scanner.nextline;
+                String birthday = scanner.nextLine();
                 System.out.println("Enter any notes for the contact:");
-                String notes = scanner.nextline;
+                String notes = scanner.nextLine();
                 Contact contact = new Contact(name, phone, email, address, birthday,notes);
                 phonebook.addContact(contact);
 
@@ -86,19 +90,18 @@ public boolean removeContact(Contact contact){
 
                         case 1:
                         System.out.print("Enter the contact's name: ");
-                             String name= scanner.nextline();
+                             String name1= scanner.nextLine();
 
-                            if(searchContactByName(name)){
+                            if(searchContactByName(name1)){
                             System.out.println("Contact found!");
-                            System.out.println(contact.toString());
-                           }
+                          }
                              
                         break;
                         case 2:
                         System.out.print("Enter the contact's phone number: ");
                         break;
                         case 3:
-                        System.out.print("Enter the contact's email address":);
+                        System.out.print("Enter the contact's email address:");
                         break;
                         case 4:
                         System.out.print("Enter the contact's address:");
@@ -135,13 +138,15 @@ public boolean removeContact(Contact contact){
                     case 7:
                         // Logic to schedule an event
                         break;
+                    case 8:
+                        System.out.println("Goodbye!");     
+                        break;
+
                     default:
                         System.out.println("Invalid choice. Please try again.");
                         break;
                 }
             } while (choice != 8);
-
-            System.out.println("Goodbye!");     
     
 
              

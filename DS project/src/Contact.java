@@ -1,4 +1,4 @@
-public class Contact {
+public class Contact implements Comparable<Contact> {
     private String name;
     private String phoneNumber;
     private String email;
@@ -71,6 +71,13 @@ public class Contact {
             ", birthday='" + getBirthday() + "'" +
             ", notes='" + getNotes() + "'" +
             "}";
+    }
+
+    
+    @Override
+    public int compareTo(Contact o) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
     }
     
    

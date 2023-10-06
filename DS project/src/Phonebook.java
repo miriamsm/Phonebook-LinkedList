@@ -11,7 +11,7 @@ public class Phonebook {
         if (!UniqueContact(contact)) {
             System.out.println("a contact with the same name or phone number already exists, Contact can not be added");
             return;
-        }   Contactlist.add(contact);
+        }   Contactlist.insert(contact);
           System.out.println("Contact added successfully!"); }
     
 

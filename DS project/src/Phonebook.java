@@ -123,15 +123,14 @@ public class Phonebook {
                     case 7:
                         // Logic to schedule an event
                         break;
-                    case 8:
-                        System.out.println("Goodbye!");                  
-                              break;
                     default:
                         System.out.println("Invalid choice. Please try again.");
                         break;
                 }
             } while (choice != 8);
-            
+
+            System.out.println("Goodbye!");     
+    
 
              
 

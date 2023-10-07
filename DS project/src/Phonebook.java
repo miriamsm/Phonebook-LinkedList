@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Phonebook {
         
-       static LinkedList<Contact> Contactlist= new LinkedList<>();
+       LinkedList<Contact> Contactlist= new LinkedList<>();
        LinkedList<Event> Eventlist= new LinkedList<>();
 
     
@@ -35,10 +35,22 @@ public class Phonebook {
        public Contact searchContact(String name){
         if (name == null || name=="")
         return null;
-        for(Contact contact: Contactlist){
-            if ((contact).getName().equals((name)))
-            return contact;
+        Contactlist.findfirst();
+        Contact temp = Contactlist.retrieve();
+        while(!((temp).getName().equals((name)))){
+            Contactlist.findnext();
+            temp=Contactlist.retrieve();
         }
+            return temp;
+        
+       }
+
+       public void scheduleEvent(Event event){
+        if(hasEventConflict(event)){
+            System.out.println("Sorry there was a conflict!");
+            return;
+        }
+        Eventlist.insert(event);
        }
 
        public void shareEvents(){}
@@ -47,7 +59,7 @@ public class Phonebook {
 
        public void ContactExists(){}
 
-       public static boolean searchContactByName(String name){
+       public boolean searchContactByName(String name){
         return true;
        }
 
@@ -120,7 +132,7 @@ public class Phonebook {
                         System.out.print("Enter the contact's name: ");
                              String name1= scanner.nextLine();
 
-                            if(searchContactByName(name1)){
+                            if(phonebook.searchContactByName(name1)){
                             System.out.println("Contact found!");
                           }
                              
@@ -146,12 +158,23 @@ public class Phonebook {
                     if(phonebook.removeContact(phonebook.searchContact(name2))){
                         System.out.println("Contact was succesfully deleted!");
                     }
+                    else{
+                        System.out.println("Sorry couldn't find this contact!");
+                    }
                     break;
                     case 4:
                 System.out.println("Enter event title:");
+                String eventtitle=  scanner.nextLine();
                 System.out.println("Enter contact name:");
+                String contactname= scanner.nextLine();
                 System.out.println("Enter event date and time (MM/DD/YYYY HH:MM):");
-                System.out.println("Enter event location:");               
+                String date= scanner.nextLine();
+                System.out.println("Enter event location:");      
+                String location= scanner.nextLine();
+
+                Contact eContact=phonebook.searchContact(contactname);
+                Event event = new Event(eventtitle, eContact, date, location);
+                phonebook.scheduleEvent(event);         
                          break;
                     case 5:
                 System.out.println("Enter search criteria:\r\n"+"1. contact name\r\n"+"2. Event tittle");  

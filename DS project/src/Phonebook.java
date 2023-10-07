@@ -46,6 +46,15 @@ public class Phonebook {
         return true;
        }
 
+    public boolean hasEventConflict(Contact contact, Event newEvent) { 
+        for (Event existingEvent : contact.getEvents()) {
+        	
+        	if (existingEvent.getDate().equals(newEvent.getDate())) {
+                return true; 
+            }
+        }
+        return false; 
+    }
 
 
 

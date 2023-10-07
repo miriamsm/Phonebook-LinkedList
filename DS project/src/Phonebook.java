@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Phonebook {
         
-       LinkedList<Contact> Contactlist= new LinkedList<>();
+       static LinkedList<Contact> Contactlist= new LinkedList<>();
        LinkedList<Event> Eventlist= new LinkedList<>();
 
     
@@ -32,8 +32,13 @@ public class Phonebook {
        }
     
 
-       public String searchContact(){
+       public Contact searchContact(String name){
+        if (name == null || name=="")
         return null;
+        for(Contact contact: Contactlist){
+            if ((contact).getName().equals((name)))
+            return contact;
+        }
        }
 
        public void shareEvents(){}
@@ -135,8 +140,13 @@ public class Phonebook {
                      }
                         break;
                     case 3:
-                    System.out.println("Enter the  name of the contact");
-                        break;
+                    System.out.println("Enter the  contact's name:");
+                    String name2 =scanner.next();
+                    
+                    if(phonebook.removeContact(phonebook.searchContact(name2))){
+                        System.out.println("Contact was succesfully deleted!");
+                    }
+                    break;
                     case 4:
                 System.out.println("Enter event title:");
                 System.out.println("Enter contact name:");

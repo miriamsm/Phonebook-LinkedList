@@ -21,7 +21,14 @@ public class Phonebook {
 
     
      public boolean removeContact(Contact contact){
+        if(Contactlist.find(contact)){
+            
+        Contactlist.remove();
             return true;
+
+        };
+        return false;
+
        }
     
 
@@ -112,7 +119,7 @@ public class Phonebook {
                      }
                         break;
                     case 3:
-                        // Logic to delete a contact
+                    System.out.println("Enter the  name of the contact");
                         break;
                     case 4:
                 System.out.println("Enter event title:");

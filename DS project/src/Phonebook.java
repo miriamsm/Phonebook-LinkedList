@@ -39,15 +39,22 @@ public class Phonebook {
         return true;
        }
 
-    public boolean hasEventConflict(Contact contact, Event newEvent) { 
-        for (Event existingEvent : contact.getEvents()) {
-        	
-        	if (existingEvent.getDate().equals(newEvent.getDate())) {
-                return true; 
-            }
-        }
-        return false; 
-    }
+    public boolean hasEventConflict(Event newEvent) {
+    	   Eventlist.findfirst(); // Start at the beginning of the list
+
+    	   while (!Eventlist.empty()) {
+    	       Event existingEvent = Eventlist.retrieve();
+    	       
+    	       if (existingEvent.getDate().equals(newEvent.getDate())) {
+    	           return true; 
+    	       }
+    	       
+    	       Eventlist.findnext();
+    	   }
+
+    	   return false; 
+
+    	}
 
 
 

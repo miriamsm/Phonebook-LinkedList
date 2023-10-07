@@ -15,9 +15,19 @@ public class Phonebook {
           System.out.println("Contact added successfully!"); }
     
 
-     public boolean UniqueContact(Contact newContact) {
-    
-        return true;  }
+      public boolean UniqueContact(Contact newContact) {
+
+        if (Contactlist.empty()){
+        return true;}
+
+        Contactlist.findfirst();
+        Contact existing = Contactlist.retrieve();
+        while(existing!=null){
+             if (existing.getName().equalsIgnoreCase(newContact.getName())||existing.getPhoneNumber().equals(newContact.getPhoneNumber())) {
+             return false;}
+            Contactlist.findnext();
+            existing=Contactlist.retrieve();
+        } return true; }
 
     
      public boolean removeContact(Contact contact){

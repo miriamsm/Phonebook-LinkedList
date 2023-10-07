@@ -6,36 +6,36 @@ public class LinkedList<T>{
         head=current=null;
     }
 
-public boolean empty(){
-    return head==null;
-}
+    public boolean empty(){
+     return head==null;
+    }
 
-public boolean last(){
-    return current.next==null;
-}
+    public boolean last(){
+      return current.next==null;
+    }
 
-public boolean full () {
-return false; 
-}
+    public boolean full () {
+      return false; 
+    }
 
-public void findfirst () {
-current = head;
-}
+    public void findfirst () {
+     current = head;
+    }
 
-public void findnext () {
-current = current.next; 
-}
+    public void findnext () {
+     current = current.next; 
+    }
 
-public T retrieve () {
-return current.data; 
-}
+    public T retrieve () {
+     return current.data; 
+    }
 
-public void update (T val) {
-current.data = val; 
-}
+    public void update (T val) {
+     current.data = val; 
+    }
 
 
-public void insert(T val) {
+    public void insert(T val) {
         Node<T> tmp = new Node<T>(val);
         if(empty()) {
         current = head = tmp;
@@ -48,10 +48,10 @@ public void insert(T val) {
         current.next = tmp;
         current = tmp;
         }
-}
+    }
         
 
-public void remove() {
+    public void remove() {
             if(current == head) {
             head = head.next;
             if(head != null)
@@ -66,19 +66,36 @@ public void remove() {
             current = head;
             else
             current = current.next;
-}
+    }
 
-public void findPrevious() {
-                Node<T> tmp = head;
-                while(tmp.next != current)
+    public void findPrevious() {
+        Node<T> tmp = head;
+            while(tmp.next != current)
                 tmp = tmp.next;
-                current = tmp;
-                }
+            current = tmp;
+    }
 
-                public void findLast() {
-                    while(current.next != null)
-                    current = current.next;
-                    }
+    public void findLast() {
+        while(current.next != null)
+            current = current.next;
+    }
+
+    public boolean find(T data) {
+            if(this.empty()) {
+                return false;
+            }
+                       
+            Node<T> current = head;
+                       
+            while(current != null) {
+                           
+                if(current.getData().equals(data)) {
+                                return true;
+                }
+                           
+                current = current.getNext();
+            }
+        return  false;
+    }
 }
-            
     

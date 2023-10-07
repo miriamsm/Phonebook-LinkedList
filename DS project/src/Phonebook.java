@@ -35,6 +35,8 @@ public class Phonebook {
        public Contact searchContact(String name){
         if (name == null || name=="")
         return null;
+        if (Contactlist.empty())
+        return null;
         Contactlist.findfirst();
         Contact temp = Contactlist.retrieve();
         while(!((temp).getName().equals((name)))){
@@ -51,6 +53,7 @@ public class Phonebook {
             return;
         }
         Eventlist.insert(event);
+        System.out.println("Event scheduled successfully!");
        }
 
        public void shareEvents(){}

@@ -146,7 +146,8 @@ public class Phonebook {
             return;
         }
         Eventlist.insert(event); 
-        System.out.println("Event scheduled successfully!");}
+        System.out.println("Event scheduled successfully!");
+    }
     
 
 
@@ -205,9 +206,9 @@ public class Phonebook {
                     }
             }
     }
+        
 
-        
-        
+    // a method to print event details    
     public void PrintEventDetails(String eventTitle){
 
         Eventlist.findfirst(); 
@@ -216,6 +217,7 @@ public class Phonebook {
         while(event!=null){
                if (event.getTitle().equalsIgnoreCase(eventTitle)) {
                    System.out.println(event); 
+                   return;
                 }
             
             Eventlist.findnext();
@@ -226,6 +228,7 @@ public class Phonebook {
 
 
 
+    // a method to print all events that share the first name
     public void shareFirstName(String firstName){
         LinkedList<Contact> shareFirstName= new LinkedList<>();
         int i=0;

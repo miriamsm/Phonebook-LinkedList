@@ -36,17 +36,16 @@ public class LinkedList<T>{
 
 
     public void insert(T val) {
-        Node<T> tmp = new Node<T>(val);
+        Node<T> tmp = new Node<>(val);
         if(empty()) {
         current = head = tmp;
-        }
-        else {
+        }else {
         tmp.next = current.next;
         tmp.previous = current;
-        if(current.next != null)
+        if(current.next != null){
         current.next.previous = tmp;
         current.next = tmp;
-        current = tmp;
+        current = tmp;}
         }
     }
         
@@ -85,7 +84,7 @@ public class LinkedList<T>{
                 return false;
             }
                        
-            Node<T> current = head;
+             current = head;
                        
             while(current != null) {
                            

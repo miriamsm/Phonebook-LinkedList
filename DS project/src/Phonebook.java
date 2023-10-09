@@ -209,13 +209,14 @@ public class Phonebook {
         
 
     // a method to print event details    
-    public void PrintEventDetails(String eventTitle){
+    public void PrintEventByName(String eventTitle){
 
         Eventlist.findfirst(); 
         Event event = Eventlist.retrieve();
  
         while(event!=null){
                if (event.getTitle().equalsIgnoreCase(eventTitle)) {
+                System.out.println("Event found!"); 
                    System.out.println(event); 
                    return;
                 }
@@ -223,6 +224,28 @@ public class Phonebook {
             Eventlist.findnext();
             event=Eventlist.retrieve();
         }
+        System.out.println("Event is not found"); 
+
+    }
+
+
+    // a method to print event details    
+    public void PrintEventByContact(String phone){
+
+        Eventlist.findfirst(); 
+        Event event = Eventlist.retrieve();
+ 
+        while(event!=null){
+               if ((event.getContactName().getPhoneNumber()).equals(phone)) {
+                System.out.println("Event found!"); 
+                   System.out.println(event); 
+                   return;
+                }
+            
+            Eventlist.findnext();
+            event=Eventlist.retrieve();
+        }
+        System.out.println("Event is not found"); 
 
     }
 

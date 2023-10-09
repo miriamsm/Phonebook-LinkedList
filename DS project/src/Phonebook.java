@@ -18,6 +18,7 @@ public class Phonebook {
     }
     
 
+
     public boolean UniqueContact(Contact newContact) {
 
         if (Contactlist.empty()){
@@ -40,6 +41,7 @@ public class Phonebook {
     }
 
 
+
     public LinkedList<Contact> searchContactsByCriteria(String criteria) {
     LinkedList<Contact> Contacts= new LinkedList<>();
 
@@ -60,6 +62,7 @@ public class Phonebook {
     }
 
 
+
     public void searchContactsByPhonenumber(String Phonenumber) {
 
         Contactlist.findfirst();
@@ -77,6 +80,9 @@ public class Phonebook {
             System.out.println("Contact not found!");
 
     }
+
+    
+
     public void searchContactsByName(String name) {
 
         Contactlist.findfirst();
@@ -96,7 +102,8 @@ public class Phonebook {
 
     }
 
-     
+
+
     public boolean removeContact(Contact contact){
         if(Contactlist.find(contact)){
             Contactlist.remove();
@@ -135,6 +142,8 @@ public class Phonebook {
         Eventlist.insert(event);
         System.out.println("Event scheduled successfully!");
     }
+
+
 
     public void shareFirstName(String firstName){
     	   Contact currentContact = null;
@@ -177,7 +186,7 @@ public class Phonebook {
     }
 
     public boolean hasEventConflict(Event newEvent) {
-    	   Eventlist.findfirst(); // Start at the beginning of the list
+    	   Eventlist.findfirst(); 
 
     	   while (!Eventlist.empty()) {
     	       Event existingEvent = Eventlist.retrieve();

@@ -111,18 +111,36 @@ public class Phonebook {
         };
         return false;
     }
-       
-       
 
 
     // a method to schedule an event while making sure it has no conflict
     public void scheduleEvent(Event event){
-        if(hasEventConflict(event)){
+        if(eventHasConflict(event)){
             System.out.println("Sorry there was a conflict!");
             return;
         }
         Eventlist.insert(event);
-        System.out.println("Event scheduled successfully!");
+        System.out.println("Event scheduled successfully!");}
+    
+
+
+    // a method that checks if an event has a conflict
+    public boolean eventHasConflict(Event newEvent) {
+    	   Eventlist.findfirst(); 
+           Event event = Eventlist.retrieve();
+
+    	   while (!Eventlist.empty()) {
+    	       Event existingEvent = Eventlist.retrieve();
+               
+               if (existingEvent.getDate().equals(newEvent.getDate())) {
+    	           return true; 
+    	        }
+    	       
+    	       Eventlist.findnext();
+    	    }
+
+    	return false; 
+
     }
 
 
@@ -181,24 +199,6 @@ public class Phonebook {
         return temp;
     }
 
-
-
-    public boolean hasEventConflict(Event newEvent) {
-    	   Eventlist.findfirst(); 
-
-    	   while (!Eventlist.empty()) {
-    	       Event existingEvent = Eventlist.retrieve();
-               
-               if (existingEvent.getDate().equals(newEvent.getDate())) {
-    	           return true; 
-    	        }
-    	       
-    	       Eventlist.findnext();
-    	    }
-
-    	   return false; 
-
-    }
 
 
     public static void main(String[] args){

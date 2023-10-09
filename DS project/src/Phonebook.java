@@ -42,6 +42,46 @@ public class Phonebook {
 
 
 
+    public void searchContactByName(String name) {
+
+        Contactlist.findfirst();
+        Contact contact = Contactlist.retrieve();
+ 
+        while(contact!=null){
+
+             if (contact.getName().equalsIgnoreCase(name)) {
+                  System.out.println("Contact found!");
+                  System.out.println(contact);
+                  return;
+        }
+            Contactlist.findnext();
+            contact=Contactlist.retrieve();}
+            
+            System.out.println("Contact not found!");
+
+    }
+
+
+    public void searchContactsByPhonenumber(String Phonenumber) {
+
+        Contactlist.findfirst();
+        Contact contact = Contactlist.retrieve();
+ 
+        while(contact!=null){
+
+             if (contact.getPhoneNumber().equals(Phonenumber)) {
+                  System.out.println("Contact found!");
+                  System.out.println(contact);
+                  return;
+        }
+            Contactlist.findnext();
+            contact=Contactlist.retrieve();}
+            System.out.println("Contact not found!");
+
+    }
+    
+
+
     public LinkedList<Contact> searchContactsByCriteria(String criteria) {
     LinkedList<Contact> Contacts= new LinkedList<>();
 
@@ -63,47 +103,6 @@ public class Phonebook {
 
 
 
-    public void searchContactsByPhonenumber(String Phonenumber) {
-
-        Contactlist.findfirst();
-        Contact contact = Contactlist.retrieve();
- 
-        while(contact!=null){
-
-             if (contact.getPhoneNumber().equals(Phonenumber)) {
-                  System.out.println("Contact found!");
-                  System.out.println(contact);
-                  return;
-        }
-            Contactlist.findnext();
-            contact=Contactlist.retrieve();}
-            System.out.println("Contact not found!");
-
-    }
-
-    
-
-    public void searchContactByName(String name) {
-
-        Contactlist.findfirst();
-        Contact contact = Contactlist.retrieve();
- 
-        while(contact!=null){
-
-             if (contact.getName().equalsIgnoreCase(name)) {
-                  System.out.println("Contact found!");
-                  System.out.println(contact);
-                  return;
-        }
-            Contactlist.findnext();
-            contact=Contactlist.retrieve();}
-            
-            System.out.println("Contact not found!");
-
-    }
-
-
-
     public boolean removeContact(Contact contact){
         if(Contactlist.find(contact)){
             Contactlist.remove();
@@ -114,23 +113,6 @@ public class Phonebook {
     }
        
        
-    // a method that returns an object Contact from a Stirng
-    public Contact searchContact(String name){
-        if (name == null || name=="")
-        return null;
-
-        if (Contactlist.empty())
-        return null;
-
-        Contactlist.findfirst();
-        Contact temp = Contactlist.retrieve();
-
-        while(!((temp).getName().equalsIgnoreCase((name)))){
-            Contactlist.findnext();
-            temp=Contactlist.retrieve();
-        }
-        return temp;
-    }
 
 
     // a method to schedule an event while making sure it has no conflict
@@ -145,12 +127,15 @@ public class Phonebook {
 
 
 
+    public void shareEvents(){}
+
+
     public void shareFirstName(String firstName){
-    	   Contact currentContact = null;
-    	   Contactlist.findfirst();
-    	   boolean discovered = false;
+    	Contact currentContact = null;
+    	Contactlist.findfirst();
+    	boolean discovered = false;
     	   
-    	   while(!Contactlist.empty()) {
+    	while(!Contactlist.empty()) {
     		   currentContact = Contactlist.retrieve();
     		   
     		   if(currentContact.getName().equalsIgnoreCase(firstName)) {
@@ -175,11 +160,25 @@ public class Phonebook {
     	    }
        }
 
-    public void shareEvents(){}
 
-    public void shareFirstName(){}
 
-    public void ContactExists(){}
+    // a method that returns an object Contact from a Stirng
+    public Contact searchContact(String name){
+        if (name == null || name=="")
+        return null;
+
+        if (Contactlist.empty())
+        return null;
+
+        Contactlist.findfirst();
+        Contact temp = Contactlist.retrieve();
+
+        while(!((temp).getName().equalsIgnoreCase((name)))){
+            Contactlist.findnext();
+            temp=Contactlist.retrieve();
+        }
+        return temp;
+    }
 
 
 

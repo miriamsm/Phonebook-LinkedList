@@ -102,6 +102,8 @@ public class LinkedList<T>{
         return false;
     }
 
+
+
     public boolean contains(T obj) {
         Node<T> current = head;
 

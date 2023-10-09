@@ -83,7 +83,7 @@ public class Phonebook {
 
     
 
-    public void searchContactsByName(String name) {
+    public void searchContactByName(String name) {
 
         Contactlist.findfirst();
         Contact contact = Contactlist.retrieve();
@@ -181,9 +181,7 @@ public class Phonebook {
 
     public void ContactExists(){}
 
-    public boolean searchContactByName(String name){
-    return true;
-    }
+
 
     public boolean hasEventConflict(Event newEvent) {
     	   Eventlist.findfirst(); 

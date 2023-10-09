@@ -129,17 +129,17 @@ public class Phonebook {
     	   Eventlist.findfirst(); 
            Event event = Eventlist.retrieve();
 
-    	   while (!Eventlist.empty()) {
-    	       Event existingEvent = Eventlist.retrieve();
-               
-               if (existingEvent.getDate().equals(newEvent.getDate())) {
-    	           return true; 
-    	        }
-    	       
-    	       Eventlist.findnext();
-    	    }
+        while(event!=null){
 
-    	return false; 
+             if (event.getDate().equals(newEvent.getDate())) { 
+                if (event.getContactName().equals(newEvent.getContactName())) {
+                    return true;
+                }
+             }
+
+            Eventlist.findnext();
+            event=Eventlist.retrieve();
+        } return false;
 
     }
 

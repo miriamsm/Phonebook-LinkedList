@@ -318,9 +318,7 @@ public class Phonebook {
                         System.out.println("Enter any notes for the contact:");
                         String notes = scanner.nextLine();
 
-                        Contact contact = new Contact(name, phone, email, address, birthday,notes);
-                        phonebook.addContact(contact);
-                        System.out.println(contact);
+                        phonebook.addContact(new Contact(name, phone, email, address, birthday,notes));
 
                         break;
                     case 2:
@@ -384,8 +382,7 @@ public class Phonebook {
                         String location= scanner.nextLine();
 
                         Contact eContact=phonebook.searchContact(contactname);
-                        Event event = new Event(eventtitle, eContact, date, location);
-                        phonebook.scheduleEvent(event); 
+                        phonebook.scheduleEvent(new Event(eventtitle, eContact, date, location)); 
 
                         break;
                     case 5:

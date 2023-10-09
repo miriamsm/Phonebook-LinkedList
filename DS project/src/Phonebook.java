@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Phonebook {
@@ -58,6 +57,25 @@ public class Phonebook {
             contact=Contactlist.retrieve();
         }
         return Contacts;
+    }
+
+
+    public void searchContactsByPhonenumber(String Phonenumber) {
+
+        Contactlist.findfirst();
+        Contact contact = Contactlist.retrieve();
+ 
+        while(contact!=null){
+
+             if (contact.getPhoneNumber().equals(Phonenumber)) {
+                  System.out.println("Contact found!");
+                  System.out.println(contact);
+                  return;
+        }
+            Contactlist.findnext();
+            contact=Contactlist.retrieve();}
+            System.out.println("Contact not found!");
+
     }
 
      

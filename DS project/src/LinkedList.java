@@ -90,7 +90,7 @@ public class LinkedList<T>{
             while(current != null) {
                            
                 if(current.getData().equals(data)) {
-                                return true;
+                    return true;
                 }
                            
                 current = current.getNext();

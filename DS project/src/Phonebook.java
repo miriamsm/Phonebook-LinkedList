@@ -126,6 +126,10 @@ public class Phonebook {
 
     // a method to schedule an event while making sure it has no conflict
     public void scheduleEvent(Event event){
+        if(!Contactlist.contains(event.getContactName())){
+            System.out.println("Sorry contact does not exist");
+            return;
+        }
         if(eventHasConflict(event)){
             System.out.println("Sorry there is a conflict!");
             return;

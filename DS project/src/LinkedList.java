@@ -105,7 +105,7 @@ public class LinkedList<T>{
 
 
     public boolean contains(T obj) {
-        Node<T> current = head;
+        current = head;
 
         while (current != null) {
             if (current.data.equals(obj)) {

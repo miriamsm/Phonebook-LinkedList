@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Phonebook {
@@ -116,10 +118,10 @@ public class Phonebook {
     // a method to schedule an event while making sure it has no conflict
     public void scheduleEvent(Event event){
         if(eventHasConflict(event)){
-            System.out.println("Sorry there was a conflict!");
+            System.out.println("Sorry there is a conflict!");
             return;
         }
-        Eventlist.insert(event);
+        Eventlist.insert(event); 
         System.out.println("Event scheduled successfully!");}
     
 
@@ -145,7 +147,41 @@ public class Phonebook {
 
 
 
-    public void shareEvents(){}
+  // Method to print all contacts sharing an event
+        public void contactsSharingEvent(String eventTitle) {
+            LinkedList<Contact> contactsSharingEvent= new LinkedList<>();
+            int i=0;
+
+            Eventlist.findfirst(); 
+           Event event = Eventlist.retrieve();
+ 
+        while(event!=null){
+
+              if (event.getTitle().equalsIgnoreCase(eventTitle)) {
+                    contactsSharingEvent.insert(event.getContactName());
+                    i++;
+                }
+            
+            Eventlist.findnext();
+            event=Eventlist.retrieve();}
+    
+            if (contactsSharingEvent.empty()) {
+                System.out.println("No contacts are sharing the event: " + eventTitle);
+            } else {
+                System.out.println("The contacts sharing event: " + eventTitle);
+
+                Contactlist.findfirst();
+                Contact contact = Contactlist.retrieve();
+
+                for (int index = 0; index < i; index++) {
+                    System.out.println(contact);
+
+                    Contactlist.findnext();
+                   contact=Contactlist.retrieve();
+                }
+
+               
+            }}
 
 
 

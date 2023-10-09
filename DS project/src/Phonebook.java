@@ -12,6 +12,7 @@ public class Phonebook {
             System.out.println("a contact with the same name or phone number already exists, Contact can not be added");
             return;
         }   
+        
         Contactlist.insert(contact);
         System.out.println("Contact added successfully!"); 
     }

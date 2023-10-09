@@ -378,6 +378,8 @@ public class Phonebook {
                         break;
                     case 6:
                         System.out.print("Enter the first name: ");
+                         String Fname=  scanner.nextLine();
+                         phonebook.shareFirstName(Fname);
                         break;
                     case 7:
                         // Logic to schedule an event

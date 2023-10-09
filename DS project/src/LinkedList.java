@@ -98,12 +98,7 @@ public class LinkedList<T>{
         return  false;
     }
 
-    public boolean contains(Contact contact) {
-        return false;
-    }
-
-
-
+    
     public boolean contains(T obj) {
         current = head;
 

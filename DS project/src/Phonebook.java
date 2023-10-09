@@ -123,7 +123,7 @@ public class Phonebook {
 
     // a method to schedule an event while making sure it has no conflict
     public void scheduleEvent(Event event){
-        if(!Contactlist.find(event.getContactName())){
+        if(!Contactlist.contains(event.getContactName())){
             System.out.println("Sorry contact does not exist");
             return;
         }

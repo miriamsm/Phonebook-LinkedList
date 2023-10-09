@@ -386,9 +386,28 @@ public class Phonebook {
 
                         break;
                     case 5:
-                        System.out.println("Enter event title:");
-                        String eventT=  scanner.nextLine();
-                        phonebook.PrintEventDetails(eventT);
+                        System.out.println("Enter search criteria:\r\n" +  "1. contact name\r\n" + "2. Event tittle\r");
+                        System.out.print("Enter your choice: ");
+                        int search=  scanner.nextInt();
+                        switch (search) {
+                            case 1:
+                            System.out.print("Enter contact name: ");
+                            String Cname=  scanner.nextLine();
+                            phonebook.PrintEventDetails(Cname);
+
+                                break;
+                            case 2:
+                            System.out.print("Enter event tittle: ");
+
+                             String eventT=  scanner.nextLine();
+                             phonebook.PrintEventDetails(eventT);
+                                
+                                break;
+                        
+                            default:
+                            System.out.print("invalid choice ");
+                                break;
+                        }
                     
                         break;
                     case 6:

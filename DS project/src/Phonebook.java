@@ -254,14 +254,14 @@ public class Phonebook {
                         case 1:
                            System.out.print("Enter the contact's name: ");
                            String name1= scanner.nextLine();
+                           phonebook.searchContactByName(name1);
 
-                            if(phonebook.searchContactByName(name1)){
-                                System.out.println("Contact found!");
-                            }
                              
                             break;
                         case 2:
                             System.out.print("Enter the contact's phone number: ");
+                            String phonenum=scanner.nextLine();
+                            phonebook.searchContactsByPhonenumber(phonenum);
 
                             break;
                         case 3:

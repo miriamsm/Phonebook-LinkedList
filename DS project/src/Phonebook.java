@@ -211,31 +211,33 @@ public class Phonebook {
 
 
     public void shareFirstName(String firstName){
-    	Contact currentContact = null;
-    	Contactlist.findfirst();
-    	boolean discovered = false;
-    	   
-    	while(!Contactlist.empty()) {
-    		 currentContact = Contactlist.retrieve();
-    		   
-    		   if(currentContact.getName().equalsIgnoreCase(firstName)) {
-    			   if (!discovered) {
-    	                System.out.println("Contacts found!");
-    	                discovered = true;
-    	            }
-    			    System.out.println("Name: " + currentContact.getName());
-    	            System.out.println("Phone Number: " + currentContact.getPhoneNumber());
-    	            System.out.println("Email Address: " + currentContact.getEmail());
-    	            System.out.println("Address: " + currentContact.getAddress());
-    	            System.out.println("Birthday: " + currentContact.getBirthday());
-    	            System.out.println();
-    		   }
-    		   
-    		   Contactlist.findnext(); 
+        LinkedList<Contact> shareFirstName= new LinkedList<>();
+        int i=0;
+
+        Contactlist.findfirst();
+        Contact contact = Contactlist.retrieve();
+
+        while(contact!=null){
+
+            if (contact.getName().toLowerCase().startsWith(firstName.toLowerCase())) {
+                shareFirstName.insert(contact);
+                i++;
+            }
+
+            Contactlist.findnext();
+            contact=Contactlist.retrieve();
+        }
+                shareFirstName.findfirst();
+                Contact c = shareFirstName.retrieve();
+
+                for (int index = 0; index < i; index++) {
+                    System.out.println(c);
+
+                    shareFirstName.findnext();
+                   c=shareFirstName.retrieve();
+                }
     	
-    	}
-    	   
-    	   if (!discovered) {
+    	   if (shareFirstName.empty()) {
     	        System.out.println("No contacts with the first name: " + firstName);
     	    }
     }

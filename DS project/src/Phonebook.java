@@ -63,29 +63,6 @@ public class Phonebook {
 
     	}
 
-        public void shareFirstName(String firstName){
-    	   Contact currentContact = null;
-    	   Contactlist.findfirst();
-    	   boolean discovered = false;
-    	   
-    	   while(!Contactlist.empty()) {
-    		   currentContact = Contactlist.retrieve();
-    		   
-    		   if(currentContact.getName().equalsIgnoreCase(firstName)) {
-    			   System.out.println("the contacts that share the same name: " + currentContact); 
-    			   discovered = true;
-    		   }
-    		   
-    		   Contactlist.findnext(); 
-    	
-    	   }
-    	  if(!discovered) { 
-    		  System.out.println("No contacts found with the same name as : " + firstName );
-    	  }
-    	  
-       }
-
-
 
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);

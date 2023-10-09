@@ -77,6 +77,24 @@ public class Phonebook {
             System.out.println("Contact not found!");
 
     }
+    public void searchContactsByName(String name) {
+
+        Contactlist.findfirst();
+        Contact contact = Contactlist.retrieve();
+ 
+        while(contact!=null){
+
+             if (contact.getName().equalsIgnoreCase(name)) {
+                  System.out.println("Contact found!");
+                  System.out.println(contact);
+                  return;
+        }
+            Contactlist.findnext();
+            contact=Contactlist.retrieve();}
+            
+            System.out.println("Contact not found!");
+
+    }
 
      
     public boolean removeContact(Contact contact){
@@ -119,26 +137,34 @@ public class Phonebook {
     }
 
     public void shareFirstName(String firstName){
-    	Contact currentContact = null;
-    	Contactlist.findfirst();
-    	boolean discovered = false;
+    	   Contact currentContact = null;
+    	   Contactlist.findfirst();
+    	   boolean discovered = false;
     	   
     	   while(!Contactlist.empty()) {
     		   currentContact = Contactlist.retrieve();
     		   
     		   if(currentContact.getName().equalsIgnoreCase(firstName)) {
-    			   System.out.println("the contacts that share the same name: " + currentContact); 
-    			   discovered = true;
+    			   if (!discovered) {
+    	                System.out.println("Contacts found!");
+    	                discovered = true;
+    	            }
+    			   System.out.println("Name: " + currentContact.getName());
+    	            System.out.println("Phone Number: " + currentContact.getPhoneNumber());
+    	            System.out.println("Email Address: " + currentContact.getEmail());
+    	            System.out.println("Address: " + currentContact.getAddress());
+    	            System.out.println("Birthday: " + currentContact.getBirthday());
+    	            System.out.println();
     		   }
     		   
-    		   Contactlist.findnext();
+    		   Contactlist.findnext(); 
     	
     	   }
-    	  if(!discovered) { 
-    		  System.out.println("No contacts found with the same name as : " + firstName );
-    	  }
-    	  
-    }
+    	   
+    	   if (!discovered) {
+    	        System.out.println("No contacts with the first name: " + firstName);
+    	    }
+       }
 
     public void shareEvents(){}
 

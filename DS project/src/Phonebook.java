@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Phonebook {
@@ -37,6 +39,26 @@ public class Phonebook {
 
         } 
         return true; 
+    }
+
+
+    public LinkedList<Contact> searchContactsByCriteria(String criteria) {
+    LinkedList<Contact> Contacts= new LinkedList<>();
+
+        Contactlist.findfirst();
+        Contact contact = Contactlist.retrieve();
+
+        while(contact!=null){
+
+             if (contact.getEmail().equalsIgnoreCase(criteria) ||
+                contact.getAddress().equalsIgnoreCase(criteria) ||
+                contact.getBirthday().equalsIgnoreCase(criteria)) {
+                Contacts.insert(contact); }
+
+            Contactlist.findnext();
+            contact=Contactlist.retrieve();
+        }
+        return Contacts;
     }
 
      

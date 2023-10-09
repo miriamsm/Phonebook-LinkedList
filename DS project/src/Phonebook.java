@@ -84,8 +84,9 @@ public class Phonebook {
     
 
 
-    public LinkedList<Contact> searchContactsByCriteria(String criteria) {
+    public void searchContactsByCriteria(String criteria) {
     LinkedList<Contact> Contacts= new LinkedList<>();
+        int i=0;
 
         Contactlist.findfirst();
         Contact contact = Contactlist.retrieve();
@@ -100,7 +101,15 @@ public class Phonebook {
             Contactlist.findnext();
             contact=Contactlist.retrieve();
         }
-        return Contacts;
+                Contacts.findfirst();
+                Contact c = Contacts.retrieve();
+
+                for (int index = 0; index < i; index++) {
+                    System.out.println(c);
+
+                    Contacts.findnext();
+                   c=Contacts.retrieve();
+                }
     }
 
 
@@ -170,18 +179,33 @@ public class Phonebook {
             } else {
                 System.out.println("The contacts sharing event: " + eventTitle);
 
-                Contactlist.findfirst();
-                Contact contact = Contactlist.retrieve();
+                contactsSharingEvent.findfirst();
+                Contact contact = contactsSharingEvent.retrieve();
 
                 for (int index = 0; index < i; index++) {
                     System.out.println(contact);
 
-                    Contactlist.findnext();
-                   contact=Contactlist.retrieve();
+                    contactsSharingEvent.findnext();
+                   contact=contactsSharingEvent.retrieve();
                 }
 
                
             }}
+
+           public void PrintEventDetails(String eventTitle){
+
+            Eventlist.findfirst(); 
+            Event event = Eventlist.retrieve();
+ 
+            while(event!=null){
+             if (event.getTitle().equalsIgnoreCase(eventTitle)) {
+                   System.out.println(event); 
+                }
+            
+            Eventlist.findnext();
+            event=Eventlist.retrieve();}
+
+           }
 
 
 
@@ -275,6 +299,7 @@ public class Phonebook {
 
                         Contact contact = new Contact(name, phone, email, address, birthday,notes);
                         phonebook.addContact(contact);
+                        System.out.println(contact);
 
                         break;
                     case 2:
@@ -300,15 +325,18 @@ public class Phonebook {
                             break;
                         case 3:
                             System.out.print("Enter the contact's email address:");
-
+                            String email1 =scanner.nextLine();
+                            phonebook.searchContactsByCriteria(email1);
                             break;
                         case 4:
                             System.out.print("Enter the contact's address:");
-
+                            String addr =scanner.nextLine();
+                            phonebook.searchContactsByCriteria(addr);
                             break;
                         case 5:
                             System.out.print("Enter the contact's birthday:");
-
+                            String birthd =scanner.nextLine();
+                            phonebook.searchContactsByCriteria(birthd);
                             break;
                     }
 
@@ -340,6 +368,9 @@ public class Phonebook {
 
                         break;
                     case 5:
+                        System.out.println("Enter event title:");
+                        String eventT=  scanner.nextLine();
+                        phonebook.PrintEventDetails(eventT);
                     
                         break;
                     case 6:

@@ -58,32 +58,8 @@ public class Phonebook {
         if (Contactlist.empty())
         return null;
 
-<<<<<<< HEAD
-       public void shareFirstName(String firstName){
-    	   Contact currentContact = null;
-    	   Contactlist.findfirst();
-    	   boolean discovered = false;
-    	   
-    	   while(!Contactlist.empty()) {
-    		   currentContact = Contactlist.retrieve();
-    		   
-    		   if(currentContact.getName().equalsIgnoreCase(firstName)) {
-    			   System.out.println("the contacts that share the same name: " + currentContact); 
-    			   discovered = true;
-    		   }
-    		   
-    		   Contactlist.findnext();
-    	
-    	   }
-    	  if(!discovered) { 
-    		  System.out.println("No contacts found with the same name as : " + firstName );
-    	  }
-    	  
-       }
-=======
         Contactlist.findfirst();
         Contact temp = Contactlist.retrieve();
->>>>>>> fe7c7c572e0a0a8f89b1d63734f04aa5d47e830f
 
         while(!((temp).getName().equalsIgnoreCase((name)))){
             Contactlist.findnext();
@@ -101,6 +77,28 @@ public class Phonebook {
         }
         Eventlist.insert(event);
         System.out.println("Event scheduled successfully!");
+    }
+
+    public void shareFirstName(String firstName){
+    	Contact currentContact = null;
+    	Contactlist.findfirst();
+    	boolean discovered = false;
+    	   
+    	   while(!Contactlist.empty()) {
+    		   currentContact = Contactlist.retrieve();
+    		   
+    		   if(currentContact.getName().equalsIgnoreCase(firstName)) {
+    			   System.out.println("the contacts that share the same name: " + currentContact); 
+    			   discovered = true;
+    		   }
+    		   
+    		   Contactlist.findnext();
+    	
+    	   }
+    	  if(!discovered) { 
+    		  System.out.println("No contacts found with the same name as : " + firstName );
+    	  }
+    	  
     }
 
     public void shareEvents(){}

@@ -238,7 +238,7 @@ public class Phonebook {
                 }
     	
     	   if (shareFirstName.empty()) {
-    	        System.out.println("No contacts with the first name: " + firstName);
+    	        System.out.println("No contacts found with the first name: " + firstName);
     	    }
     }
 

@@ -130,20 +130,21 @@ public class Phonebook {
     public void shareEvents(){}
 
 
+
     public void shareFirstName(String firstName){
     	Contact currentContact = null;
     	Contactlist.findfirst();
     	boolean discovered = false;
     	   
     	while(!Contactlist.empty()) {
-    		   currentContact = Contactlist.retrieve();
+    		 currentContact = Contactlist.retrieve();
     		   
     		   if(currentContact.getName().equalsIgnoreCase(firstName)) {
     			   if (!discovered) {
     	                System.out.println("Contacts found!");
     	                discovered = true;
     	            }
-    			   System.out.println("Name: " + currentContact.getName());
+    			    System.out.println("Name: " + currentContact.getName());
     	            System.out.println("Phone Number: " + currentContact.getPhoneNumber());
     	            System.out.println("Email Address: " + currentContact.getEmail());
     	            System.out.println("Address: " + currentContact.getAddress());
@@ -153,12 +154,12 @@ public class Phonebook {
     		   
     		   Contactlist.findnext(); 
     	
-    	   }
+    	}
     	   
     	   if (!discovered) {
     	        System.out.println("No contacts with the first name: " + firstName);
     	    }
-       }
+    }
 
 
 

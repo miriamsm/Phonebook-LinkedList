@@ -99,8 +99,14 @@ public class Phonebook {
 
             Contactlist.findnext();
             contact=Contactlist.retrieve();
-        }
-        
+
+        } if (Contacts.empty()) {
+            System.out.println("Contact not found!");
+            
+        }else{
+
+        System.out.println("Contact found!");
+
         Contacts.findfirst();
         Contact c = Contacts.retrieve();
 
@@ -110,7 +116,7 @@ public class Phonebook {
 
             Contacts.findnext();
             c=Contacts.retrieve();
-        }
+        }}
     }
 
 
@@ -158,10 +164,8 @@ public class Phonebook {
 
         while(event!=null){
 
-             if (event.getDate().equals(newEvent.getDate())) { 
-                if (event.getContactName().equals(newEvent.getContactName())) {
-                    return true;
-                }
+             if (event.getDate().equals(newEvent.getDate()) && (event.getContactName().equals(newEvent.getContactName()))) {
+                    return true;  
              }
 
             Eventlist.findnext();
@@ -173,7 +177,7 @@ public class Phonebook {
 
 
     // Method to print all contacts sharing an event
-    public void contactsSharingEvent(String eventTitle) {
+    public void ContactsSharingEvent(String eventTitle) {
         LinkedList<Contact> contactsSharingEvent= new LinkedList<>();
         int i=0;
 
@@ -224,7 +228,7 @@ public class Phonebook {
             Eventlist.findnext();
             event=Eventlist.retrieve();
         }
-        System.out.println("Event is not found"); 
+        System.out.println("Event not found"); 
 
     }
 
@@ -245,7 +249,7 @@ public class Phonebook {
             Eventlist.findnext();
             event=Eventlist.retrieve();
         }
-        System.out.println("Event is not found"); 
+        System.out.println("Event not found"); 
 
     }
 
@@ -416,14 +420,14 @@ public class Phonebook {
                             case 1:
                             System.out.print("Enter contact name: ");
                             String Cname=  scanner.nextLine();
-                            phonebook.PrintEventDetails(Cname);
+                            phonebook.PrintEventByContact(Cname);
 
                                 break;
                             case 2:
                             System.out.print("Enter event tittle: ");
 
                              String eventT=  scanner.nextLine();
-                             phonebook.PrintEventDetails(eventT);
+                             phonebook.PrintEventByName(eventT);
                                 
                                 break;
                         

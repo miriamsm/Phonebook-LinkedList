@@ -93,10 +93,9 @@ public class Phonebook {
 
         while(contact!=null){
 
-             if (contact.getEmail().equalsIgnoreCase(criteria) ||
-                contact.getAddress().equalsIgnoreCase(criteria) ||
-                contact.getBirthday().equalsIgnoreCase(criteria)) {
-                Contacts.insert(contact); }
+             if (contact.getEmail().equalsIgnoreCase(criteria) || contact.getAddress().equalsIgnoreCase(criteria) || contact.getBirthday().equalsIgnoreCase(criteria)) {
+                Contacts.insert(contact); 
+                 i++;}
 
             Contactlist.findnext();
             contact=Contactlist.retrieve();

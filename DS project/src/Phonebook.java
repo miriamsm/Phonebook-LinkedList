@@ -122,7 +122,7 @@ public class Phonebook {
 
     // a method to remove a contact with its assosiated events
     public boolean removeContact(Contact contact){
-        if(Contactlist.find(contact)){
+        if(Contactlist.contains(contact)){
 
            Eventlist.findfirst();
            Event event=Eventlist.retrieve();
@@ -241,7 +241,7 @@ public class Phonebook {
  
         while(event!=null){
                if ((event.getContactName().getPhoneNumber()).equals(phone)) {
-                System.out.println("Event found!"); 
+                   System.out.println("Event found!"); 
                    System.out.println(event); 
                    return;
                 }

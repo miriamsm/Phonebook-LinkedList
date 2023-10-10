@@ -79,24 +79,6 @@ public class LinkedList<T>{
             current = current.next;
     }
 
-    public boolean find(T data) {
-            if(this.empty()) {
-                return false;
-            }
-                       
-             current = head;
-                       
-            while(current != null) {
-                           
-                if(current.getData().equals(data)) {
-                    return true;
-                }
-                           
-                current = current.getNext();
-            }
-        return  false;
-    }
-
     
     public boolean contains(T obj) {
         current = head;

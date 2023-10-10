@@ -9,12 +9,12 @@ public class Phonebook {
     // a method to add contact and sorts the contacts alphabetically
     public void addContact(Contact contact){
         if (!UniqueContact(contact)) {
-            System.out.println("a contact with the same name or phone number already exists, Contact can not be added");
+            System.out.println("a contact with the same name or phone number already exists, Contact can not be added\n");
             return;
         }   
         
         Contactlist.insert(contact);
-        System.out.println("Contact added successfully!"); 
+        System.out.println("Contact added successfully!\n"); 
     }
     
 
@@ -50,14 +50,14 @@ public class Phonebook {
         while(contact!=null){
 
              if (contact.getName().equalsIgnoreCase(name)) {
-                  System.out.println("Contact found!");
-                  System.out.println(contact);
+                  System.out.println("Contact found!\n");
+                  System.out.println(contact+"\n");
                   return;
         }
             Contactlist.findnext();
             contact=Contactlist.retrieve();}
             
-            System.out.println("Contact not found!");
+            System.out.println("Contact not found!\n");
 
     }
 
@@ -71,13 +71,13 @@ public class Phonebook {
         while(contact!=null){
 
              if (contact.getPhoneNumber().equals(Phonenumber)) {
-                  System.out.println("Contact found!");
-                  System.out.println(contact);
+                  System.out.println("Contact found!\n");
+                  System.out.println(contact+"\n");
                   return;
         }
             Contactlist.findnext();
             contact=Contactlist.retrieve();}
-            System.out.println("Contact not found!");
+            System.out.println("Contact not found!\n");
 
     }
     
@@ -101,18 +101,18 @@ public class Phonebook {
             contact=Contactlist.retrieve();
 
         } if (Contacts.empty()) {
-            System.out.println("Contact not found!");
+            System.out.println("Contact not found!\n");
             
         }else{
 
-        System.out.println("Contact found!");
+        System.out.println("Contact found!\n");
 
         Contacts.findfirst();
         Contact c = Contacts.retrieve();
 
         for (int index = 0; index < i; index++) {
                 
-            System.out.println(c);
+            System.out.println(c+"\n");
 
             Contacts.findnext();
             c=Contacts.retrieve();
@@ -155,15 +155,15 @@ public class Phonebook {
     // a method to schedule an event while making sure it has no conflict
     public void scheduleEvent(Event event){
         if(!Contactlist.contains(event.getContactName())){
-            System.out.println("Sorry contact does not exist");
+            System.out.println("Sorry contact does not exist\n");
             return;
         }
         if(eventHasConflict(event)){
-            System.out.println("Sorry there is a conflict!");
+            System.out.println("Sorry there is a conflict!\n");
             return;
         }
         Eventlist.insert(event); 
-        System.out.println("Event scheduled successfully!");
+        System.out.println("Event scheduled successfully!\n");
     }
     
 
@@ -194,15 +194,15 @@ public class Phonebook {
  
         while(event!=null){
                if (event.getTitle().equalsIgnoreCase(eventTitle)) {
-                System.out.println("Event found!"); 
-                   System.out.println(event); 
+                System.out.println("Event found!\n"); 
+                   System.out.println(event+"\n"); 
                    return;
                 }
             
             Eventlist.findnext();
             event=Eventlist.retrieve();
         }
-        System.out.println("Event not found"); 
+        System.out.println("Event not found!\n"); 
 
     }
 
@@ -215,15 +215,15 @@ public class Phonebook {
  
         while(event!=null){
                if ((event.getContactName().getPhoneNumber()).equals(phone)) {
-                   System.out.println("Event found!"); 
-                   System.out.println(event); 
+                   System.out.println("Event found!\n"); 
+                   System.out.println(event+"\n"); 
                    return;
                 }
             
             Eventlist.findnext();
             event=Eventlist.retrieve();
         }
-        System.out.println("Event not found"); 
+        System.out.println("Event not found!\n"); 
 
     }
 
@@ -250,14 +250,15 @@ public class Phonebook {
             
         shareFirstName.findfirst();
         Contact c = shareFirstName.retrieve();
+        System.out.println("Contacts that share the first name:\n");
         for (int index = 0; index < i; index++) {
-            System.out.println(c);
+            System.out.println(c+"\n");
             shareFirstName.findnext();
             c=shareFirstName.retrieve();
         }
     	
     	if (shareFirstName.empty()) {
-    	    System.out.println("No contacts found with the first name: " + firstName);
+    	    System.out.println("No contacts found with the first name: " + firstName+"\n");
     	}
     }
 
@@ -282,15 +283,15 @@ public class Phonebook {
             }
     
             if (contactsSharingEvent.empty()) {
-                  System.out.println("No contacts are sharing the event: " + eventTitle);
+                  System.out.println("No contacts are sharing the event: " + eventTitle+"\n");
             } 
             else {
-                System.out.println("The contacts sharing event: " + eventTitle);
+                System.out.println("The contacts sharing event: " + eventTitle+"\n");
                 contactsSharingEvent.findfirst();
                 Contact contact = contactsSharingEvent.retrieve();
 
                     for (int index = 0; index < i; index++) {
-                     System.out.println(contact);
+                     System.out.println(contact+"\n");
 
                      contactsSharingEvent.findnext();
                      contact=contactsSharingEvent.retrieve();
@@ -302,14 +303,14 @@ public class Phonebook {
     // a method that prints all events alphabetically
     public void printAllEvents(LinkedList<Event> sortedlist){
         if(sortedlist.empty()){
-            System.out.println("Sorry no event was found");
+            System.out.println("Sorry no event was found\n");
             return;
         }
-        System.out.println("Events sorted alphabetically:");
+        System.out.println("Events sorted alphabetically:\n");
         sortedlist.findfirst();
         Event list = sortedlist.retrieve();
         while(list!= null){
-            System.out.println(list);
+            System.out.println(list+"\n");
             sortedlist.findnext();
             list=sortedlist.retrieve();
         }
@@ -353,6 +354,7 @@ public class Phonebook {
                         System.out.println("Enter any notes for the contact:");
                         String notes = scanner.nextLine();
 
+                        System.out.println("\n");
                         phonebook.addContact(new Contact(name, phone, email, address, birthday,notes));
 
                         break;
@@ -400,10 +402,10 @@ public class Phonebook {
                         String name2 =scanner.next();
                     
                         if(phonebook.removeContact(Contactlist.searchContact(name2))){
-                            System.out.println("Contact was succesfully deleted!");
+                            System.out.println("Contact was succesfully deleted!\n");
                         }
                         else{
-                           System.out.println("Sorry couldn't find this contact!");
+                           System.out.println("Sorry couldn't find this contact!\n");
                         }
                         break;
                     case 4:
@@ -416,6 +418,7 @@ public class Phonebook {
                         System.out.println("Enter event location:");      
                         String location= scanner.nextLine();
 
+                        System.out.println("\n");
                         Contact eContact=Contactlist.searchContact(contactname);
                         phonebook.scheduleEvent(new Event(eventtitle, eContact, date, location)); 
 
@@ -428,19 +431,21 @@ public class Phonebook {
                             case 1:
                             System.out.print("Enter contact name: ");
                             String Cname=  scanner.nextLine();
+                            System.out.println("\n");
                             phonebook.PrintEventByContact(Cname);
 
                                 break;
                             case 2:
                             System.out.print("Enter event tittle: ");
-
                              String eventT=  scanner.nextLine();
-                             phonebook.PrintEventByName(eventT);
+
+                            System.out.println("\n");
+                            phonebook.PrintEventByName(eventT);
                                 
                                 break;
                         
                             default:
-                            System.out.print("invalid choice ");
+                            System.out.print("invalid choice\n");
                                 break;
                         }
                     
@@ -448,9 +453,12 @@ public class Phonebook {
                     case 6:
                         System.out.print("Enter the first name: ");
                         String Fname=  scanner.nextLine();
+
+                        System.out.println("\n");
                         phonebook.shareFirstName(Fname);
                         break;
                     case 7:
+                        System.out.println("\n");
                         phonebook.printAllEvents(null);
                         break;
                     case 8:
@@ -458,7 +466,7 @@ public class Phonebook {
 
                         break;
                     default:
-                        System.out.println("Invalid choice. Please try again.");
+                        System.out.println("Invalid choice. Please try again.\n");
                         break;
                 }
             } while (choice != 8);

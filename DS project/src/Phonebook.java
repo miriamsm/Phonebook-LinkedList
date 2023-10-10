@@ -129,7 +129,7 @@ public class Phonebook {
            
            while(event!=null){
                 if((event).getContactName().equals(contact)){
-                  Eventlist.remove();
+                  Eventlist.remove(event);
                 }
                Eventlist.findnext();
                event=Eventlist.retrieve();
@@ -141,7 +141,7 @@ public class Phonebook {
            while(contactToBeDelted!=null){
             
             if(contactToBeDelted.equals(contact)){
-            Contactlist.remove();
+            Contactlist.remove(contactToBeDelted);
             return true;
         }
             Contactlist.findnext();

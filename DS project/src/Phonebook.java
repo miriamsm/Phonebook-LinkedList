@@ -359,6 +359,7 @@ public class Phonebook {
 
                         break;
                     case 2:
+                        System.out.println("\n");
                         System.out.println("Enter search criteria:\r\n"+"1. Name\r\n"+"2. Phone Number\r\n"+"3. Email Address\r\n"+"4. Address\r\n"+"5. Birthday\r");
                         System.out.println("Enter your choice: ");
                         int criteria = scanner.nextInt();
@@ -447,7 +448,6 @@ public class Phonebook {
                         int search=  scanner.nextInt();
                         switch (search) {
                             case 1:
-                            System.out.println("\n");
                             System.out.print("Enter contact name: ");
                             String Cname=  scanner.nextLine();
 

@@ -186,44 +186,6 @@ public class Phonebook {
     }
 
 
-
-    // Method to print all contacts sharing an event
-    public void ContactsSharingEvent(String eventTitle) {
-        LinkedList<Contact> contactsSharingEvent= new LinkedList<>();
-        int i=0;
-
-        Eventlist.findfirst(); 
-        Event event = Eventlist.retrieve();
- 
-            while(event!=null){
-
-                if (event.getTitle().equalsIgnoreCase(eventTitle)) {
-                    contactsSharingEvent.insert(event.getContactName());
-                    i++;
-                }
-            
-                Eventlist.findnext();
-                event=Eventlist.retrieve();
-            }
-    
-            if (contactsSharingEvent.empty()) {
-                  System.out.println("No contacts are sharing the event: " + eventTitle);
-            } 
-            else {
-                System.out.println("The contacts sharing event: " + eventTitle);
-                contactsSharingEvent.findfirst();
-                Contact contact = contactsSharingEvent.retrieve();
-
-                    for (int index = 0; index < i; index++) {
-                     System.out.println(contact);
-
-                     contactsSharingEvent.findnext();
-                     contact=contactsSharingEvent.retrieve();
-                    }
-            }
-    }
-        
-
     // a method to print event details    
     public void PrintEventByName(String eventTitle){
 
@@ -300,7 +262,59 @@ public class Phonebook {
     }
 
 
+    // Method to print all contacts sharing an event
+    public void ContactsSharingEvent(String eventTitle) {
+        LinkedList<Contact> contactsSharingEvent= new LinkedList<>();
+        int i=0;
 
+        Eventlist.findfirst(); 
+        Event event = Eventlist.retrieve();
+ 
+            while(event!=null){
+
+                if (event.getTitle().equalsIgnoreCase(eventTitle)) {
+                    contactsSharingEvent.insert(event.getContactName());
+                    i++;
+                }
+            
+                Eventlist.findnext();
+                event=Eventlist.retrieve();
+            }
+    
+            if (contactsSharingEvent.empty()) {
+                  System.out.println("No contacts are sharing the event: " + eventTitle);
+            } 
+            else {
+                System.out.println("The contacts sharing event: " + eventTitle);
+                contactsSharingEvent.findfirst();
+                Contact contact = contactsSharingEvent.retrieve();
+
+                    for (int index = 0; index < i; index++) {
+                     System.out.println(contact);
+
+                     contactsSharingEvent.findnext();
+                     contact=contactsSharingEvent.retrieve();
+                    }
+            }
+    }
+
+
+    // a method that prints all events alphabetically
+    public void printAllEvents(LinkedList<Event> sortedlist){
+        if(sortedlist.empty()){
+            System.out.println("Sorry no event was found");
+            return;
+        }
+        System.out.println("Events sorted alphabetically:");
+        sortedlist.findfirst();
+        Event list = sortedlist.retrieve();
+        while(list!= null){
+            System.out.println(list);
+            sortedlist.findnext();
+            list=sortedlist.retrieve();
+        }
+        return;
+    }
 
 
     public static void main(String[] args){
@@ -433,11 +447,11 @@ public class Phonebook {
                         break;
                     case 6:
                         System.out.print("Enter the first name: ");
-                         String Fname=  scanner.nextLine();
-                         phonebook.shareFirstName(Fname);
+                        String Fname=  scanner.nextLine();
+                        phonebook.shareFirstName(Fname);
                         break;
                     case 7:
-                        // Logic to schedule an event
+                        phonebook.printAllEvents(null);
                         break;
                     case 8:
                         System.out.println("Goodbye!");   

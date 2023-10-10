@@ -126,6 +126,7 @@ public class Phonebook {
 
            Eventlist.findfirst();
            Event event=Eventlist.retrieve();
+           
            while(event!=null){
                 if((event).getContactName().equals(contact)){
                   Eventlist.remove();
@@ -133,9 +134,19 @@ public class Phonebook {
                Eventlist.findnext();
                event=Eventlist.retrieve();
            }
-
+           
+           Contactlist.findfirst();
+           Contact contactToBeDelted=Contactlist.retrieve();
+           
+           while(contactToBeDelted!=null){
+            
+            if(contactToBeDelted.equals(contact)){
             Contactlist.remove();
             return true;
+        }
+            Contactlist.findnext();
+            contactToBeDelted=Contactlist.retrieve();
+           }
         }
        return false;
     }
@@ -192,17 +203,18 @@ public class Phonebook {
                 }
             
                 Eventlist.findnext();
-                event=Eventlist.retrieve();}
+                event=Eventlist.retrieve();
+            }
     
-                if (contactsSharingEvent.empty()) {
+            if (contactsSharingEvent.empty()) {
                   System.out.println("No contacts are sharing the event: " + eventTitle);
-                } 
-                else {
-                    System.out.println("The contacts sharing event: " + eventTitle);
-                    contactsSharingEvent.findfirst();
-                    Contact contact = contactsSharingEvent.retrieve();
+            } 
+            else {
+                System.out.println("The contacts sharing event: " + eventTitle);
+                contactsSharingEvent.findfirst();
+                Contact contact = contactsSharingEvent.retrieve();
 
-                     for (int index = 0; index < i; index++) {
+                    for (int index = 0; index < i; index++) {
                      System.out.println(contact);
 
                      contactsSharingEvent.findnext();

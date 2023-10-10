@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Phonebook {
         
-    static LinkedList<Contact> Contactlist= new LinkedList<>();
+    LinkedList<Contact> Contactlist= new LinkedList<>();
     LinkedList<Event> Eventlist= new LinkedList<>();
 
     
@@ -289,6 +289,24 @@ public class Phonebook {
 
 
 
+    // a method that returns an object Contact from a Stirng
+    public Contact searchContact(String name){
+        if (name == null || name=="")
+        return null;
+
+        if (Contactlist.empty())
+        return null;
+
+        Contactlist.findfirst();
+        Contact temp = Contactlist.retrieve();
+
+        while(!((temp).getName().equalsIgnoreCase((name)))){
+            Contactlist.findnext();
+            temp=Contactlist.retrieve();
+        }
+        return temp;
+    }
+
 
 
     public static void main(String[] args){
@@ -373,7 +391,7 @@ public class Phonebook {
                         System.out.println("Enter the  contact's name:");
                         String name2 =scanner.next();
                     
-                        if(phonebook.removeContact(Contactlist.searchContact(name2))){
+                        if(phonebook.removeContact(phonebook.searchContact(name2))){
                             System.out.println("Contact was succesfully deleted!");
                         }
                         else{
@@ -390,7 +408,7 @@ public class Phonebook {
                         System.out.println("Enter event location:");      
                         String location= scanner.nextLine();
 
-                        Contact eContact=Contactlist.searchContact(contactname);
+                        Contact eContact=phonebook.searchContact(contactname);
                         phonebook.scheduleEvent(new Event(eventtitle, eContact, date, location)); 
 
                         break;

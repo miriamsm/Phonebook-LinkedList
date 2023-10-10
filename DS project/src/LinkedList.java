@@ -93,43 +93,5 @@ public class LinkedList<T>{
         return false;
     }
 
-
-    // a method that returns an object Contact from a Stirng
-    public Contact searchContact(String name){
-        if (name == null || name=="")
-        return null;
-
-        if (this.empty())
-        return null;
-
-        current=head;
-        Contact temp = (Contact) current.data;
-
-        while(!((temp).getName().equalsIgnoreCase((name)))){
-            current=current.getNext();
-            temp=(Contact) current.data;
-        }
-        return temp;
-    }
-
-
-    // // a method that returns an object Event from a Stirng
-    public Event searchEvent(String title){
-        if (title == null || title=="")
-        return null;
-
-        if (this.empty())
-        return null;
-
-        current=head;
-        Event temp = (Event) current.data;
-
-        while(!((temp).getTitle().equalsIgnoreCase((title)))){
-            current=current.getNext();
-            temp=(Event) current.data;
-        }
-        return temp;
-    }
-
 }
     

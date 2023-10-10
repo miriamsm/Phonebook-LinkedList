@@ -367,40 +367,56 @@ public class Phonebook {
                     switch(criteria){
 
                         case 1:
+                           System.out.println("\n");
                            System.out.print("Enter the contact's name: ");
                            String name1= scanner.nextLine();
+                           System.out.println("\n");
                            phonebook.searchContactByName(name1);
 
                              
                             break;
                         case 2:
+                            System.out.println("\n");
                             System.out.print("Enter the contact's phone number: ");
                             String phonenum=scanner.nextLine();
+
+                            System.out.println("\n");
                             phonebook.searchContactsByPhonenumber(phonenum);
 
                             break;
                         case 3:
+                            System.out.println("\n");
                             System.out.print("Enter the contact's email address:");
                             String email1 =scanner.nextLine();
+
+                            System.out.println("\n");
                             phonebook.searchContactsByCriteria(email1);
                             break;
                         case 4:
+                            System.out.println("\n");
                             System.out.print("Enter the contact's address:");
                             String addr =scanner.nextLine();
+
+                            System.out.println("\n");
                             phonebook.searchContactsByCriteria(addr);
                             break;
                         case 5:
+                            System.out.println("\n");
                             System.out.print("Enter the contact's birthday:");
                             String birthd =scanner.nextLine();
+
+                            System.out.println("\n");
                             phonebook.searchContactsByCriteria(birthd);
                             break;
                     }
 
                         break;
                     case 3:
+                        System.out.println("\n");
                         System.out.println("Enter the  contact's name:");
                         String name2 =scanner.next();
-                    
+
+                        System.out.println("\n");
                         if(phonebook.removeContact(Contactlist.searchContact(name2))){
                             System.out.println("Contact was succesfully deleted!\n");
                         }
@@ -409,6 +425,7 @@ public class Phonebook {
                         }
                         break;
                     case 4:
+                        System.out.println("\n");
                         System.out.println("Enter event title:");
                         String eventtitle=  scanner.nextLine();
                         System.out.println("Enter contact name:");
@@ -424,20 +441,24 @@ public class Phonebook {
 
                         break;
                     case 5:
+                        System.out.println("\n");
                         System.out.println("Enter search criteria:\r\n" +  "1. contact name\r\n" + "2. Event tittle\r");
                         System.out.print("Enter your choice: ");
                         int search=  scanner.nextInt();
                         switch (search) {
                             case 1:
+                            System.out.println("\n");
                             System.out.print("Enter contact name: ");
                             String Cname=  scanner.nextLine();
+
                             System.out.println("\n");
                             phonebook.PrintEventByContact(Cname);
 
                                 break;
                             case 2:
+                            System.out.println("\n");
                             System.out.print("Enter event tittle: ");
-                             String eventT=  scanner.nextLine();
+                            String eventT=  scanner.nextLine();
 
                             System.out.println("\n");
                             phonebook.PrintEventByName(eventT);
@@ -445,12 +466,14 @@ public class Phonebook {
                                 break;
                         
                             default:
+                            System.out.println("\n");
                             System.out.print("invalid choice\n");
                                 break;
                         }
                     
                         break;
                     case 6:
+                        System.out.println("\n");
                         System.out.print("Enter the first name: ");
                         String Fname=  scanner.nextLine();
 

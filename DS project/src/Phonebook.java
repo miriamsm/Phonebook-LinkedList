@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Phonebook {
         
-    static LinkedList<Contact> Contactlist= new LinkedList<>();
+    static LinkedList<Contact> Contactlist= new LinkedList<Contact>();
     LinkedList<Event> Eventlist= new LinkedList<>();
 
     

@@ -102,6 +102,7 @@ public class LinkedList<T>{
         // Case 2: exist at the head of set
         if(head.getData().equals(data)) {
             head = head.getNext();
+            return;
         }
        
         Node<T> current = head, pre = null;
@@ -111,6 +112,7 @@ public class LinkedList<T>{
            
             if(current.getData().equals(data)) {
                 pre.setNext(current.getNext());
+                return;
             }
            
             pre = current;

@@ -27,7 +27,7 @@ public class LinkedList<T>{
     }
 
     public T retrieve () {
-     return current.data; 
+     return current.getData(); 
     }
 
     public void update (T val) {
@@ -58,6 +58,8 @@ public class LinkedList<T>{
         // case 1: empty set
         if(this.empty()) {
             head = node;
+            current=head;
+            return;
         }
         // otherwise move to end of the set and store it
         Node<T> current = head;

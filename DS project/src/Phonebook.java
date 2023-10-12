@@ -337,7 +337,7 @@ public class Phonebook {
 
 
     // a method that prints all events alphabetically
-    public <T> void printAllEvents(LinkedList<T> sortedlist){
+    public <T> void printList(LinkedList<T> sortedlist){
         if(sortedlist.empty()){
             System.out.println("Sorry list is empty\n");
             return;
@@ -358,7 +358,9 @@ public class Phonebook {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
             Phonebook phonebook = new Phonebook();
-
+            
+            String eventT;
+            String nameC;
             int choice;
 
             System.out.println("Welcome to the Linked Tree Phonebook!");
@@ -393,7 +395,7 @@ public class Phonebook {
 
                         System.out.println("\n");
                         phonebook.addContact(new Contact(name, phone, email, address, birthday,notes));
-                        phonebook.printAllEvents(Contactlist);
+                        phonebook.printList(Contactlist);
 
                         break;
                     case 2:
@@ -487,18 +489,20 @@ public class Phonebook {
                         System.out.println("Enter search criteria:\r\n" +  "1. contact name\r\n" + "2. Event tittle\r");
                         System.out.println("Enter your choice: ");
                         int search=  scanner.nextInt();
+                        System.out.println();
+                        
                         switch (search) {
                             case 1:
                             System.out.println("Enter contact name: ");
 
-                            String nameC= scanner.nextLine();
+                            nameC= scanner.next();
                             phonebook.PrintEventByContact(nameC);
 
                                 break;
                             case 2:
                             System.out.println("Enter event tittle: ");
-                            
-                            String eventT= scanner.nextLine();
+
+                            eventT= scanner.next();
                             phonebook.PrintEventByName(eventT);
                                 
                                 break;
@@ -520,7 +524,7 @@ public class Phonebook {
                         break;
                     case 7:
                         System.out.println("\n");
-                        phonebook.printAllEvents(null);
+                        phonebook.printList(null);
                         break;
                     case 8:
                         System.out.println("Goodbye!");   

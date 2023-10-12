@@ -106,7 +106,7 @@ public class LinkedList<T> {
         while(!((temp).getName().equalsIgnoreCase((name)))){
             current=current.getNext();
             temp=(Contact) current.data;
-            
+
              if (temp==null) {
               return null;
         }
@@ -136,7 +136,7 @@ public class LinkedList<T> {
 
     public void Sort() {
         if (head == null || head.next == null) {
-            return; // Nothing to sort
+            return; 
         }
     
         boolean swapped;

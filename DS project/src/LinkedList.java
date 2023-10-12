@@ -116,7 +116,7 @@ public class LinkedList<T> {
     }
 
 
-    // // a method that returns an object Event from a Stirng
+    // a method that returns an object Event from a Stirng
     public Event searchEvent(String title){
         if (title == null || title=="")
         return null;

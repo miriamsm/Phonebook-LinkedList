@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Phonebook {
@@ -223,7 +221,7 @@ public class Phonebook {
 
 
     // a method to print event details    
-    public void PrintEventByName(String eventTitle){
+    public void PrintEventByTitle(String eventTitle){
 
         Eventlist.findfirst(); 
         Event event = Eventlist.retrieve();
@@ -244,13 +242,13 @@ public class Phonebook {
 
 
     // a method to print event details    
-    public void PrintEventByContact(String phone){
+    public void PrintEventByContact(String name){
 
         Eventlist.findfirst(); 
         Event event = Eventlist.retrieve();
  
         while(event!=null){
-               if ((event.getContactName().getPhoneNumber()).equals(phone)) {
+               if ((event.getContactName().getName()).equalsIgnoreCase(name)) {
                    System.out.println("Event found!\n"); 
                    System.out.println(event+"\n"); 
                    return;
@@ -503,7 +501,7 @@ public class Phonebook {
                             System.out.println("Enter event tittle: ");
 
                             eventT= scanner.next();
-                            phonebook.PrintEventByName(eventT);
+                            phonebook.PrintEventByTitle(eventT);
                                 
                                 break;
                         

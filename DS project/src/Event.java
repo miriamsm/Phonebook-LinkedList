@@ -1,4 +1,4 @@
-public class Event {
+public class Event implements Comparable<Event> {
     private String title;
     private Contact contactName;
     private String date;
@@ -59,6 +59,10 @@ public class Event {
             " Date='" + getDate() + "\n" +
             " Location='" + getLocation() + "\n" ;
     }
-    
+
+    @Override
+    public int compareTo(Event o) {
+     return this.title.compareToIgnoreCase(o.getTitle());
+    }
     
 }

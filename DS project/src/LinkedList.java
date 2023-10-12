@@ -106,7 +106,12 @@ public class LinkedList<T> {
         while(!((temp).getName().equalsIgnoreCase((name)))){
             current=current.getNext();
             temp=(Contact) current.data;
+            
+             if (temp==null) {
+              return null;
         }
+        }
+
         return temp;
     }
 

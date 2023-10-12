@@ -471,12 +471,15 @@ public class Phonebook {
                         String contactname= scanner.nextLine();
                         System.out.println("Enter event date and time (MM/DD/YYYY HH:MM):");
                         String date= scanner.nextLine();
-                        System.out.println("Enter event location:");      
+                        System.out.println("Enter event location:");     
                         String location= scanner.nextLine();
 
                         System.out.println("\n");
                         Contact eContact=Contactlist.searchContact(contactname);
-                        phonebook.scheduleEvent(new Event(eventtitle, eContact, date, location)); 
+                        if (eContact==null) {
+                            System.out.println("Can not schedule event, contact does not exist");
+                        }else{
+                        phonebook.scheduleEvent(new Event(eventtitle, eContact, date, location));} 
 
                         break;
                     case 5:

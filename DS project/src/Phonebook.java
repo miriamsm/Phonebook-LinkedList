@@ -489,19 +489,16 @@ public class Phonebook {
                         int search=  scanner.nextInt();
                         switch (search) {
                             case 1:
-                            System.out.println();
                             System.out.println("Enter contact name: ");
-                            String Cname= scanner.nextLine();
 
-                            phonebook.PrintEventByContact(Cname);
+                            String nameC= scanner.nextLine();
+                            phonebook.PrintEventByContact(nameC);
 
                                 break;
                             case 2:
-                            System.out.println("\n");
                             System.out.println("Enter event tittle: ");
+                            
                             String eventT= scanner.nextLine();
-
-                            System.out.println("\n");
                             phonebook.PrintEventByName(eventT);
                                 
                                 break;

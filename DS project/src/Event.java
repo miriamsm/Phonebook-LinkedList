@@ -12,6 +12,13 @@ public class Event {
         this.location = location;
     }
 
+    public Event(Event event){
+        this.title=event.title;
+        this.contactName=event.contactName;
+        this.date=event.date;
+        this.location=event.location;
+    }
+
     public String getTitle() {
         return this.title;
     }

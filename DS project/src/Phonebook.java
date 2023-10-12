@@ -477,7 +477,7 @@ public class Phonebook {
                         System.out.println("\n");
                         Contact eContact=Contactlist.searchContact(contactname);
                         if (eContact==null) {
-                            System.out.println("Can not schedule event, contact does not exist");
+                            System.out.println("Can not schedule event, contact does not exist\n");
                         }else{
                         phonebook.scheduleEvent(new Event(eventtitle, eContact, date, location));} 
 
@@ -489,16 +489,16 @@ public class Phonebook {
                         int search=  scanner.nextInt();
                         switch (search) {
                             case 1:
-                            System.out.print("Enter contact name: ");
+                            System.out.println("\n");
+                            System.out.println("Enter contact name: ");
                             String Cname=  scanner.nextLine();
 
-                            System.out.println("\n");
                             phonebook.PrintEventByContact(Cname);
 
                                 break;
                             case 2:
                             System.out.println("\n");
-                            System.out.print("Enter event tittle: ");
+                            System.out.println("Enter event tittle: ");
                             String eventT=  scanner.nextLine();
 
                             System.out.println("\n");

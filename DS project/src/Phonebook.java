@@ -485,7 +485,7 @@ public class Phonebook {
                     case 5:
                         System.out.println("\n");
                         System.out.println("Enter search criteria:\r\n" +  "1. contact name\r\n" + "2. Event tittle\r");
-                        System.out.print("Enter your choice: ");
+                        System.out.println("Enter your choice: ");
                         int search=  scanner.nextInt();
                         switch (search) {
                             case 1:
@@ -508,14 +508,14 @@ public class Phonebook {
                         
                             default:
                             System.out.println("\n");
-                            System.out.print("invalid choice\n");
+                            System.out.println("invalid choice\n");
                                 break;
                         }
                     
                         break;
                     case 6:
                         System.out.println("\n");
-                        System.out.print("Enter the first name: ");
+                        System.out.println("Enter the first name: ");
                         String Fname=  scanner.nextLine();
 
                         System.out.println("\n");

@@ -108,7 +108,7 @@ public class LinkedList<T>{
         Node<T> current = head, pre = null;
        
         // end of set
-        while(current != null) {
+        while(current.next!= null) {
            
             if(current.getData().equals(data)) {
                 pre.setNext(current.getNext());
@@ -140,7 +140,7 @@ public class LinkedList<T>{
     public boolean contains(T obj) {
         current = head;
 
-        while (current != null) {
+        while (current.next != null) {
             if (current.data.equals(obj)) {
                 return true; 
             }

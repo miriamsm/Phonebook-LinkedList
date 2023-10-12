@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Phonebook {
@@ -80,6 +82,39 @@ public class Phonebook {
             System.out.println("Contact not found!\n");
 
     }
+
+    
+    // public List<Event> listEventsAlphabetically() {
+    //     // Find the maximum event name length to determine the range
+    //     int maxEventNameLength = 0;
+    //     for (Event event : Eventlist) {
+    //         int length = event.getTitle().length();
+    //         if (length > maxEventNameLength) {
+    //             maxEventNameLength = length;
+    //         }
+    //     }
+
+    //     // Create an array of event lists to store events based on their names
+    //     List<Event>[] eventLists = new List[maxEventNameLength + 1];
+    //     for (int i = 0; i <= maxEventNameLength; i++) {
+    //         eventLists[i] = new ArrayList<>();
+    //     }
+
+    //     // Distribute events into their respective lists based on the first character of their names
+    //     for (Event event : Eventlist) {
+    //         int index = event.getTitle().toLowerCase().charAt(0) - 'a';
+    //         eventLists[index].add(event);
+    //     }
+
+    //     // Collect events in alphabetical order
+    //     List<Event> sortedEvents = new ArrayList<>();
+    //     for (List<Event> eventList : eventLists) {
+    //         sortedEvents.addAll(eventList);
+    //     }
+
+    //     return sortedEvents;
+    // }
+
     
 
     // a method that search for a contact by email address or birthday or address

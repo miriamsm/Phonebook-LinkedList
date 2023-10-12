@@ -47,10 +47,10 @@ public class Event {
     @Override
     public String toString() {
         return 
-            " title='" + getTitle() + "/n" +
-            " contactName='" + getContactName() + "/n" +
-            " date='" + getDate() + "/n" +
-            " location='" + getLocation() + "/n" ;
+            " Title='" + getTitle() + "\n" +
+            " ContactName='" + getContactName() + "\n" +
+            " Date='" + getDate() + "\n" +
+            " Location='" + getLocation() + "\n" ;
     }
     
     

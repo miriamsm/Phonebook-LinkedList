@@ -64,12 +64,12 @@ public class Contact implements Comparable<Contact> {
     @Override
     public String toString() {
         return
-            " name='" + getName() + "\n" +
-            " phoneNumber='" + getPhoneNumber() + "\n" +
-            " email='" + getEmail() + "\n" +
-            " address='" + getAddress() + "\n" +
-            " birthday='" + getBirthday() + "\n" +
-            " notes='" + getNotes() + "\n" ;
+            " Name='" + getName() + "\n" +
+            " PhoneNumber='" + getPhoneNumber() + "\n" +
+            " Email='" + getEmail() + "\n" +
+            " Address='" + getAddress() + "\n" +
+            " Birthday='" + getBirthday() + "\n" +
+            " Notes='" + getNotes() + "\n" ;
     }
 
     

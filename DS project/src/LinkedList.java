@@ -129,47 +129,44 @@ public class LinkedList<T> {
         return temp;
     }
 
+    public void Sort() {
+        if (head == null || head.next == null) {
+            return; // Nothing to sort
+        }
+    
+        boolean swapped;
+        Node<T> last = null;
+    
+        do {
+            swapped = false;
+            current = head;
+    
+            while (current.next != last) {
+                if (((Comparable<T>) current.getData()).compareTo(current.next.getData()) > 0) {
+                    // Swap the data of current and current.next
+                    T temp = current.getData();
+                    current.setData(current.next.getData());
+                    current.next.setData(temp);
+                    swapped = true;
+                }
+                current = current.next;
+            }
+            last = current;
+        } while (swapped);
+    }
+    
 
-public void insert (Contact newContact) [
 
-if (head == null || newContact.compareTo(head) < 0) {
 
-newContact.next = head;
 
-head = newContact;
 
-} else {
 
-Contact current = head;
-
-while (current.next!= null && newContact.compareTo(current.next) >= 0) {
-
-current = current.next;}
-
-newContact.next = current.next; current.next = newContact;
-
-}
-
-}
-
-// Sort the linked list using insertion sort
-
-public void sort() { LinkedList sortedList = new LinkedList();
-
-Contact current = head;
-
-while (current != null) {
-
-Contact next = current.next;
-
-sortedList.insert(current);
-
-current = next;
-
-head = sortedList.head;
 
 }
 
-}. 
+
+
+
+
 
     

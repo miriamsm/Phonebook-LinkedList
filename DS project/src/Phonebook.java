@@ -16,6 +16,7 @@ public class Phonebook {
         }   
         
         Contactlist.insert(contact);
+        Contactlist.Sort();
         System.out.println("Contact added successfully!\n"); 
     }
     
@@ -336,20 +337,21 @@ public class Phonebook {
 
 
     // a method that prints all events alphabetically
-    public void printAllEvents(LinkedList<Event> sortedlist){
+    public <T> void printAllEvents(LinkedList<T> sortedlist){
         if(sortedlist.empty()){
-            System.out.println("Sorry no event was found\n");
+            System.out.println("Sorry list is empty\n");
             return;
         }
-        System.out.println("Events sorted alphabetically:\n");
         sortedlist.findfirst();
-        Event list = sortedlist.retrieve();
+        T list = sortedlist.retrieve();
+
         while(list!= null){
+
             System.out.println(list+"\n");
+
             sortedlist.findnext();
             list=sortedlist.retrieve();
         }
-        return;
     }
 
 
@@ -391,6 +393,7 @@ public class Phonebook {
 
                         System.out.println("\n");
                         phonebook.addContact(new Contact(name, phone, email, address, birthday,notes));
+                        phonebook.printAllEvents(Contactlist);
 
                         break;
                     case 2:

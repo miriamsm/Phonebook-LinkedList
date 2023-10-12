@@ -129,6 +129,47 @@ public class LinkedList<T> {
         return temp;
     }
 
+
+public void insert (Contact newContact) [
+
+if (head == null || newContact.compareTo(head) < 0) {
+
+newContact.next = head;
+
+head = newContact;
+
+} else {
+
+Contact current = head;
+
+while (current.next!= null && newContact.compareTo(current.next) >= 0) {
+
+current = current.next;}
+
+newContact.next = current.next; current.next = newContact;
+
+}
+
+}
+
+// Sort the linked list using insertion sort
+
+public void sort() { LinkedList sortedList = new LinkedList();
+
+Contact current = head;
+
+while (current != null) {
+
+Contact next = current.next;
+
+sortedList.insert(current);
+
+current = next;
+
+head = sortedList.head;
+
+}
+
 }
 
     

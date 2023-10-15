@@ -359,7 +359,8 @@ public class Phonebook {
                 System.out.println("5. Print event details");
                 System.out.println("6. Print contacts by first name");
                 System.out.println("7. Print all events alphabetically");
-                System.out.println("8. Exit\n");
+                System.out.println("8. Print contacts that share an event\n");
+                System.out.println("9. Exit\n");
                 System.out.print("Enter your choice: ");
                 choice = scanner.nextInt();
                 scanner.nextLine(); 
@@ -514,6 +515,11 @@ public class Phonebook {
                         phonebook.listEventsAlphabetically(Eventlist);
                         break;
                     case 8:
+                        System.out.println("Enter event tittle: ");
+                         String eventTitle= scanner.next();
+                         phonebook.ContactsSharingEvent(eventTitle);  
+                        
+                    case 9:
                         System.out.println("Goodbye!");   
 
                         break;

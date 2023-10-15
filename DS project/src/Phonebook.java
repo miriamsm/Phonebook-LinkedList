@@ -223,7 +223,7 @@ public class Phonebook {
 
         while(event!=null){
 
-             if (event.getDate().equals(newEvent.getDate()) && (event.getContactName().equals(newEvent.getContactName()))) {
+             if (event.getDate().equals(newEvent.getDate()) && (event.getContactName().equals(newEvent.getContactName()))||(event.getTitle().equalsIgnoreCase(newEvent.getTitle()))) {
                     return true;  
              }
 
@@ -256,13 +256,13 @@ public class Phonebook {
 
 
     // a method to print event details    
-    public void PrintEventByContact(String phone){
+    public void PrintEventByContact(String name){
 
         Eventlist.findfirst(); 
         Event event = Eventlist.retrieve();
  
         while(event!=null){
-               if ((event.getContactName().getPhoneNumber()).equals(phone)) {
+               if ((event.getContactName().getName()).equals(name)) {
                    System.out.println("Event found!\n"); 
                    System.out.println(event+"\n"); 
                    return;
@@ -335,15 +335,7 @@ public class Phonebook {
             } 
             else {
                 System.out.println("The contacts sharing event: " + eventTitle+"\n");
-                contactsSharingEvent.findfirst();
-                Contact contact = contactsSharingEvent.retrieve();
-
-                    for (int index = 0; index < i; index++) {
-                     System.out.println(contact+"\n");
-
-                     contactsSharingEvent.findnext();
-                     contact=contactsSharingEvent.retrieve();
-                    }
+                printList(contactsSharingEvent);
             }
     }
 

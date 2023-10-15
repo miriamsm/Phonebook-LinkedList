@@ -159,8 +159,24 @@ public class LinkedList<T> {
             last = current;
         } while (swapped);
     }
+
+    public int size() {
+        int i=0;
+
+        if (this.empty()) {
+           return 0;}
+
+           while (current != null) {
+            i++; 
+            current = current.next; 
+        }
     
-}
+         return i; }
+    
+    
+    
+    }
+
 
 
 

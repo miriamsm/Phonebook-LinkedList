@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Phonebook {
         
     static LinkedList<Contact> Contactlist= new LinkedList<Contact>();
     LinkedList<Event> Eventlist= new LinkedList<>();
+  
+
 
     
     // a method to add contact and sorts the contacts alphabetically
@@ -83,37 +87,65 @@ public class Phonebook {
     }
 
     
-    // public List<Event> listEventsAlphabetically() {
-    //     // Find the maximum event name length to determine the range
-    //     int maxEventNameLength = 0;
-    //     for (Event event : Eventlist) {
-    //         int length = event.getTitle().length();
-    //         if (length > maxEventNameLength) {
-    //             maxEventNameLength = length;
-    //         }
-    //     }
 
-    //     // Create an array of event lists to store events based on their names
-    //     List<Event>[] eventLists = new List[maxEventNameLength + 1];
-    //     for (int i = 0; i <= maxEventNameLength; i++) {
-    //         eventLists[i] = new ArrayList<>();
-    //     }
 
-    //     // Distribute events into their respective lists based on the first character of their names
-    //     for (Event event : Eventlist) {
-    //         int index = event.getTitle().toLowerCase().charAt(0) - 'a';
-    //         eventLists[index].add(event);
-    //     }
+    public LinkedList<Event> listEventsAlphabetically(LinkedList<Event> events) {
+        // Create an array of linked lists for each character ('a' to 'z')
+        LinkedList<Event>[] characterLists = new LinkedList[26];
+        for (int i = 0; i < 26; i++) {
+            characterLists[i] = new LinkedList<>();
+        }
+    
+        // Populate the character-specific linked lists
+        events.findfirst();
+        Event event = events.retrieve();
+    
+        while (event != null) {
+            char firstLetter = event.getTitle().toLowerCase().charAt(0);
+            int index = firstLetter - 'a';
+            characterLists[index].insert(event);
+    
+            events.findnext();
+            event = events.retrieve();
+        }
+    
+        // Initialize the result linked list for sorted events
+        LinkedList<Event> sortedEvents = new LinkedList<>();
+    
+        // Add events to the sorted list in alphabetical order
+        for (int i = 0; i < 26; i++) {
+            LinkedList<Event> characterList = characterLists[i];
+            characterList.findfirst();
+            Event sortedEvent = characterList.retrieve();
+    
+            while (sortedEvent != null) {
+                sortedEvents.insert(sortedEvent);
+                characterList.findnext();
+                sortedEvent = characterList.retrieve();
+            }
+        }
+    
+        return sortedEvents;
+    }
+    
+    
+    
 
-    //     // Collect events in alphabetical order
-    //     List<Event> sortedEvents = new ArrayList<>();
-    //     for (List<Event> eventList : eventLists) {
-    //         sortedEvents.addAll(eventList);
+    // public Event[] toArray(LinkedList<Event> list) {
+    //     int size = list.size();
+    
+    //     Event[] array = (Event[]) new Object[size];
+    
+    //     list.findfirst();
+    
+    //     for (int i = 0; i < size; i++) {
+    //         array[i] = list.retrieve();
+    //         list.findnext();
     //     }
-
-    //     return sortedEvents;
+    
+    //     return array;
     // }
-
+    
     
 
     // a method that search for a contact by email address or birthday or address
@@ -221,7 +253,7 @@ public class Phonebook {
 
 
     // a method to print event details    
-    public void PrintEventByTitle(String eventTitle){
+    public void PrintEventByName(String eventTitle){
 
         Eventlist.findfirst(); 
         Event event = Eventlist.retrieve();
@@ -242,13 +274,13 @@ public class Phonebook {
 
 
     // a method to print event details    
-    public void PrintEventByContact(String name){
+    public void PrintEventByContact(String phone){
 
         Eventlist.findfirst(); 
         Event event = Eventlist.retrieve();
  
         while(event!=null){
-               if ((event.getContactName().getName()).equalsIgnoreCase(name)) {
+               if ((event.getContactName().getPhoneNumber()).equals(phone)) {
                    System.out.println("Event found!\n"); 
                    System.out.println(event+"\n"); 
                    return;
@@ -501,7 +533,7 @@ public class Phonebook {
                             System.out.println("Enter event tittle: ");
 
                             eventT= scanner.next();
-                            phonebook.PrintEventByTitle(eventT);
+                            phonebook.PrintEventByName(eventT);
                                 
                                 break;
                         

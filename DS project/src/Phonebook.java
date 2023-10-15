@@ -1,11 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Phonebook {
         
     static LinkedList<Contact> Contactlist= new LinkedList<Contact>();
-    LinkedList<Event> Eventlist= new LinkedList<>();
+    static LinkedList<Event> Eventlist= new LinkedList<>();
   
 
 
@@ -89,7 +87,7 @@ public class Phonebook {
     
 
 
-    public LinkedList<Event> listEventsAlphabetically(LinkedList<Event> events) {
+    public void listEventsAlphabetically(LinkedList<Event> events) {
         // Create an array of linked lists for each character ('a' to 'z')
         LinkedList<Event>[] characterLists = new LinkedList[26];
         for (int i = 0; i < 26; i++) {
@@ -123,28 +121,12 @@ public class Phonebook {
                 characterList.findnext();
                 sortedEvent = characterList.retrieve();
             }
-        }
+        } printList(sortedEvents);
     
-        return sortedEvents;
+        
     }
     
     
-    
-
-    // public Event[] toArray(LinkedList<Event> list) {
-    //     int size = list.size();
-    
-    //     Event[] array = (Event[]) new Object[size];
-    
-    //     list.findfirst();
-    
-    //     for (int i = 0; i < size; i++) {
-    //         array[i] = list.retrieve();
-    //         list.findnext();
-    //     }
-    
-    //     return array;
-    // }
     
     
 
@@ -554,7 +536,8 @@ public class Phonebook {
                         break;
                     case 7:
                         System.out.println("\n");
-                        phonebook.printList(null);
+                        System.out.println("The events listed alphabetically: \n");
+                        phonebook.listEventsAlphabetically(Eventlist);
                         break;
                     case 8:
                         System.out.println("Goodbye!");   

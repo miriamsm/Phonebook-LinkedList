@@ -160,22 +160,24 @@ public class LinkedList<T> {
         } while (swapped);
     }
 
-    public int size() {
-        int i=0;
+}
 
-        if (this.empty()) {
-           return 0;}
+    // public int size() {
+    //     int i=0;
 
-           while (current != null) {
-            i++; 
-            current = current.next; 
-        }
+    //     if (this.empty()) {
+    //        return 0;}
+
+    //        while (current != null) {
+    //         i++; 
+    //         current = current.next; 
+    //     }
     
-         return i; }
+    //      return i; }
     
     
     
-    }
+
 
 
 

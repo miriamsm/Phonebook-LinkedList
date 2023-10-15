@@ -217,7 +217,7 @@ public class Phonebook {
 
         while(event!=null){
 
-             if (event.getDate().equals(newEvent.getDate()) && (event.getContactName().equals(newEvent.getContactName()))||(event.getTitle().equalsIgnoreCase(newEvent.getTitle()))) {
+             if (event.getDate().equals(newEvent.getDate()) && (event.getContactName().equals(newEvent.getContactName()))) {
                     return true;  
              }
 
@@ -441,7 +441,7 @@ public class Phonebook {
                         break;
                     case 3:
                         System.out.println("\n");
-                        System.out.println("Enter the  contact's name:");
+                        System.out.print("Enter the  contact's name:");
                         String name2 =scanner.next();
 
                         System.out.println("\n");
@@ -475,9 +475,7 @@ public class Phonebook {
                         System.out.println("\n");
                         System.out.println("Enter search criteria:\r\n" +  "1. contact name\r\n" + "2. Event tittle\r");
                         System.out.println("Enter your choice: ");
-                        int search=  scanner.nextInt();
-                        System.out.println();
-                        
+                        int search=  scanner.nextInt();                        
                         switch (search) {
                             case 1:
                             System.out.println("Enter contact name: ");
@@ -518,7 +516,7 @@ public class Phonebook {
                         System.out.println("Enter event tittle: ");
                          String eventTitle= scanner.next();
                          phonebook.ContactsSharingEvent(eventTitle);  
-                        
+                        break;
                     case 9:
                         System.out.println("Goodbye!");   
 

@@ -54,10 +54,10 @@ public class Event implements Comparable<Event> {
     @Override
     public String toString() {
         return 
-            " Title='" + getTitle() + "\n" +
-            " ContactName='" + getContactName() + "\n" +
-            " Date='" + getDate() + "\n" +
-            " Location='" + getLocation() + "\n" ;
+            " Title= " + getTitle() + "\n" +
+            " ContactName= " + getContactName() + "\n" +
+            " Date= " + getDate() + "\n" +
+            " Location= " + getLocation() + "\n" ;
     }
 
     @Override

@@ -86,40 +86,37 @@ public class Phonebook {
 
     
 
-
+    // a method that list and print events Alphabetically
     public void listEventsAlphabetically(LinkedList<Event> events) {
-        // Create an array of linked lists for each character ('a' to 'z')
-        LinkedList<Event>[] characterLists = new LinkedList[26];
+
+        LinkedList<Event>[] Letter = new LinkedList[26];
         for (int i = 0; i < 26; i++) {
-            characterLists[i] = new LinkedList<>();
+            Letter[i] = new LinkedList<>();
         }
     
-        // Populate the character-specific linked lists
         events.findfirst();
         Event event = events.retrieve();
     
         while (event != null) {
-            char firstLetter = event.getTitle().toLowerCase().charAt(0);
-            int index = firstLetter - 'a';
-            characterLists[index].insert(event);
+            char firstL = event.getTitle().toLowerCase().charAt(0);
+            int index = firstL - 'a';
+            Letter[index].insert(event);
     
             events.findnext();
             event = events.retrieve();
         }
     
-        // Initialize the result linked list for sorted events
         LinkedList<Event> sortedEvents = new LinkedList<>();
     
-        // Add events to the sorted list in alphabetical order
         for (int i = 0; i < 26; i++) {
-            LinkedList<Event> characterList = characterLists[i];
-            characterList.findfirst();
-            Event sortedEvent = characterList.retrieve();
+            LinkedList<Event> Letters = Letter[i];
+            Letters.findfirst();
+            Event sortedEvent = Letters.retrieve();
     
             while (sortedEvent != null) {
                 sortedEvents.insert(sortedEvent);
-                characterList.findnext();
-                sortedEvent = characterList.retrieve();
+                Letters.findnext();
+                sortedEvent = Letters.retrieve();
             }
         } printList(sortedEvents);
     
@@ -127,9 +124,6 @@ public class Phonebook {
     }
     
     
-    
-    
-
     // a method that search for a contact by email address or birthday or address
     public void searchContactsByCriteria(String criteria) {
     LinkedList<Contact> Contacts= new LinkedList<>();
@@ -276,11 +270,9 @@ public class Phonebook {
     }
 
 
-
     // a method to print all events that share the first name
     public void shareFirstName(String firstName){
         LinkedList<Contact> shareFirstName= new LinkedList<>();
-        int i=0;
 
         Contactlist.findfirst();
         Contact contact = Contactlist.retrieve();
@@ -289,32 +281,23 @@ public class Phonebook {
 
             if (contact.getName().toLowerCase().startsWith(firstName.toLowerCase())) {
                 shareFirstName.insert(contact);
-                i++;
             }
 
             Contactlist.findnext();
             contact=Contactlist.retrieve();
-        }
-            
-        shareFirstName.findfirst();
-        Contact c = shareFirstName.retrieve();
-        System.out.println("Contacts that share the first name:\n");
-        for (int index = 0; index < i; index++) {
-            System.out.println(c+"\n");
-            shareFirstName.findnext();
-            c=shareFirstName.retrieve();
-        }
-    	
-    	if (shareFirstName.empty()) {
+        }if (shareFirstName.empty()) {
     	    System.out.println("No contacts found with the first name: " + firstName+"\n");
-    	}
+    	}else{
+            
+            System.out.println("Contacts that share the first name:\n");
+            printList(shareFirstName);
+        }
     }
 
 
     // Method to print all contacts sharing an event
     public void ContactsSharingEvent(String eventTitle) {
         LinkedList<Contact> contactsSharingEvent= new LinkedList<>();
-        int i=0;
 
         Eventlist.findfirst(); 
         Event event = Eventlist.retrieve();
@@ -323,7 +306,6 @@ public class Phonebook {
 
                 if (event.getTitle().equalsIgnoreCase(eventTitle)) {
                     contactsSharingEvent.insert(event.getContactName());
-                    i++;
                 }
             
                 Eventlist.findnext();

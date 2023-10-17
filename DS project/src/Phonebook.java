@@ -525,7 +525,7 @@ public class Phonebook {
                         System.out.println("Invalid choice. Please try again.\n");
                         break;
                 }
-            } while (choice != 8);
+            } while (choice != 9);
     
         scanner.close();
 

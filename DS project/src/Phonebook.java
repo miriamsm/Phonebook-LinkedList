@@ -229,7 +229,7 @@ public class Phonebook {
 
 
     // a method to print event details    
-    public void PrintEventByName(String eventTitle){
+    public void PrintEventByTitle(String eventTitle){
 
         Eventlist.findfirst(); 
         Event event = Eventlist.retrieve();
@@ -488,7 +488,7 @@ public class Phonebook {
                             System.out.println("Enter event tittle: ");
 
                             eventT= scanner.next();
-                            phonebook.PrintEventByName(eventT);
+                            phonebook.PrintEventByTitle(eventT);
                                 
                                 break;
                         

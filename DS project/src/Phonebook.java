@@ -475,19 +475,20 @@ public class Phonebook {
                         System.out.println("\n");
                         System.out.println("Enter search criteria:\r\n" +  "1. contact name\r\n" + "2. Event tittle\r");
                         System.out.println("Enter your choice: ");
-                        int search=  scanner.nextInt();                        
+                        int search=  scanner.nextInt(); 
+                        scanner.nextLine();
                         switch (search) {
                             case 1:
                             System.out.println("Enter contact name: ");
 
-                            nameC= scanner.next();
+                            nameC= scanner.nextLine();
                             phonebook.PrintEventByContact(nameC);
 
                                 break;
                             case 2:
                             System.out.println("Enter event tittle: ");
 
-                            eventT= scanner.next();
+                            eventT= scanner.nextLine();
                             phonebook.PrintEventByTitle(eventT);
                                 
                                 break;
@@ -514,7 +515,7 @@ public class Phonebook {
                         break;
                     case 8:
                         System.out.println("Enter event tittle: ");
-                         String eventTitle= scanner.next();
+                         String eventTitle= scanner.nextLine();
                          phonebook.ContactsSharingEvent(eventTitle);  
                         break;
                     case 9:
